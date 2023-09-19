@@ -1,7 +1,6 @@
 import { styled } from ".."
 
-
-export const WrapperContainer = styled('div', {
+export const WrapperContainerStep1 = styled('div', {
   margin: 'auto',
   display: 'flex',
   padding: '1rem',
@@ -15,11 +14,11 @@ export const FormDiv = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   padding: '8rem 5rem 1rem 6rem',
-  gap: '1rem',
+  gap: '0.8rem',
   justifyContent: 'flex-end',
 });
 
-export const ButtonSubmit = styled('button', {
+export const ButtonNextStep1 = styled('button', {
   fontSize: '$geral',
   cursor: 'pointer',
   border: 'none',
@@ -48,6 +47,7 @@ export const InputField = styled('input', {
     '&:hover': {
       borderColor: '$purplishBlue',
       cursor: 'pointer',
+      backgroundColor: '$magnolia',
   }
 });
 

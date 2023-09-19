@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import {
-  ButtonSubmit,
+  ButtonNextStep1,
   FormDiv,
   InputField,
   Label,
-  WrapperContainer,
+  WrapperContainerStep1,
 } from "../styles/pages/step1";
 import Image from "next/image";
 
@@ -31,7 +31,7 @@ export default function Step1() {
   };
 
   return (
-    <WrapperContainer>
+    <WrapperContainerStep1>
       <Image src={SideBar} alt={""} width={300} height={450} />
 
       <FormDiv>
@@ -62,8 +62,8 @@ export default function Step1() {
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
         {!valid && <p>This field is required</p>}
-        <ButtonSubmit onClick={validateForm}>Next Step</ButtonSubmit>
+        <ButtonNextStep1 onClick={validateForm}>Next Step</ButtonNextStep1>
       </FormDiv>
-    </WrapperContainer>
+    </WrapperContainerStep1>
   );
 }
