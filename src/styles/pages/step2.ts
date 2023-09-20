@@ -3,15 +3,12 @@ import { blackA } from '@radix-ui/colors';
 import * as Switch from '@radix-ui/react-switch';
 
 export const WrapperContainerStep2 = styled('div', {
-
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
 
 export const FormDiv = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  flexWrap: 'wrap',
-  gap: '1rem',
-  justifyContent: 'flex-end',
 
   p: {
     color: '$gray300',
@@ -19,25 +16,12 @@ export const FormDiv = styled('div', {
   }
 });
 
-export const ButtonNextStep2 = styled('button', {
-  fontSize: '$geral',
-  cursor: 'pointer',
-  border: 'none',
-  borderRadius: '0.4rem',
-  backgroundColor: '$marineBlue',
-  color: 'white',
-  textDecoration: 'none',
-  minWidth: '8rem',
-  maxWidth: '8rem',
-  padding: '0.8rem 1.2rem',
-})
-
 export const DivTeste = styled('div', {
   border: '1px solid $lightGray',
   display: 'flex',
   flexDirection: 'column',
   padding: '1rem',
-  width: '4rem',
+  width: '8rem',
   borderRadius: '4px',
   gap: '1rem',
   cursor: 'pointer',
@@ -48,14 +32,12 @@ export const DivTeste = styled('div', {
   }
 })
 
-export const CardDiv = styled('div', {
-  display: 'flex',
-  gap: '1rem',
-});
 
 export const SwitchBox = styled('div', {
   backgroundColor: '$magnolia',
   padding: '0.8rem',
+  display: 'flex',
+  alignItems: 'center',
 });
 
 export const SwitchRoot = styled(Switch.Root, {
@@ -68,7 +50,7 @@ export const SwitchRoot = styled(Switch.Root, {
   boxShadow: `0 2px 10px ${blackA.blackA7}`,
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
   '&:focus': { boxShadow: `0 0 0 2px black` },
-  '&[data-state="checked"]': { backgroundColor: 'black' },
+  '&[data-state="checked"]': { backgroundColor: 'black' }
 });
 
 export const SwitchThumb = styled(Switch.Thumb, {

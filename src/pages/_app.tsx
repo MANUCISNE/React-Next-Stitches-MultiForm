@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app'
 import { globalStyles } from '../styles/global'
 import { useState } from 'react'
 
-import { BoxWrapper, ButtonDivPosition, ButtonDivTeste, ButtonNext, CenterWrapper, Container, StepsButtons, Teste } from '../styles/pages/app'
+import { BoxWrapper, ButtonContainer, ButtonDivTeste, ButtonNext, CenterWrapper, Container } from '../styles/pages/app'
 import Image from "next/image";
 
 import Step1 from './step1'
@@ -49,22 +49,28 @@ export default function App({ Component, pageProps }: AppProps) {
           />
         ))}
         </CenterWrapper>
-      <Teste>
+      
+      <ButtonContainer>
         <BoxWrapper>{getCompStep()}</BoxWrapper>
         <ButtonDivTeste>
-          <Link href={''}>
-              <button
-                onClick={() => setStep(step - 1)}
-                disabled={step === 1}
-                style={{textDecoration: 'none', color: '$marineBlue',}}
-              >
-                Go Back
-              </button>
+          {step !== 1 && step !== 4 && (
+            <Link href={''}>
+            <button
+              onClick={() => setStep(step - 1)}
+              disabled={step === 1}
+              style={{textDecoration: 'none', color: '$marineBlue', background: 'transparent', border: 'none'}}
+            >
+              Go Back
+            </button>
             </Link>
-            <ButtonNext onClick={() => step !== 4 && setStep(step + 1)}>Next Step</ButtonNext>
-        </ButtonDivTeste>
+          )}
 
-      </Teste>
+          {step !== 4 && (
+            <ButtonNext onClick={() => step !== 4 && setStep(step + 1)}>Next Step</ButtonNext>
+          )}
+            
+        </ButtonDivTeste>
+      </ButtonContainer>
         
       {/*<Component {...pageProps} />*/}
     </Container>

@@ -11,7 +11,7 @@ export const Container = styled('div', {
   borderRadius: '8px',
 })
 
-export const Teste = styled("div", {
+export const ButtonContainer = styled("div", {
   display: "flex",
   flexDirection: "column",
   width: "100%",
