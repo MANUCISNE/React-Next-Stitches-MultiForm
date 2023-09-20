@@ -11,9 +11,18 @@ export const Container = styled('div', {
   borderRadius: '8px',
 })
 
-export const FlexWrapper = styled("div", {
+export const Teste = styled("div", {
   display: "flex",
-  height: "100vh",
+  flexDirection: "column",
+  width: "100%",
+  marginLeft: "3rem",
+});
+
+export const ButtonDivTeste = styled("div", {
+  display: "flex",
+  justifyContent: "space-between",
+  marginTop: "1.5rem",
+  width: "80%",
 });
 
 export const CenterWrapper = styled("div", {
@@ -53,8 +62,7 @@ export const ButtonNext = styled('button', {
 })
 
 export const StepsButtons = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
+  
 })
 
 export const ButtonDivPosition = styled('div', {

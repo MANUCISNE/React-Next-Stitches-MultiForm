@@ -8,11 +8,11 @@ const StepWrapper = styled("div", {
 });
 
 const StepBox = styled("div", {
-  padding: '0.8rem 0.8rem',
+  paddingTop: ".23rem",
+  paddingLeft: ".55rem",
   borderRadius: "50%",
-  textAlign: 'center',
-  height: '12px',
-  width: "12px",
+  height: '30px',
+  width: "30px",
   border: '1px solid $white',
   backgroundColor: "transparent",
   color: "$white",

@@ -1,14 +1,14 @@
 import { styled } from ".."
 
 export const WrapperContainerStep1 = styled('div', {
-
+  
 });
 
 export const FormDiv = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  padding: '3.5rem',
-  gap: '1rem',
+  paddingLeft: '1rem',
+  gap: '.5rem',
   justifyContent: 'flex-end',
 
   p: {
