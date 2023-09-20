@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app'
 import { globalStyles } from '../styles/global'
 import { useState } from 'react'
 
-import { BoxWrapper, ButtonNext, CenterWrapper, Container } from '../styles/pages/app'
+import { BoxWrapper, ButtonDivPosition, ButtonNext, CenterWrapper, Container, StepsButtons } from '../styles/pages/app'
 import Image from "next/image";
 
 import Step1 from './step1'
@@ -47,20 +47,23 @@ export default function App({ Component, pageProps }: AppProps) {
             active={step === item}
           />
         ))}
-
-
         </CenterWrapper>
-      <>
-      <BoxWrapper>{getCompStep()}</BoxWrapper>
+      <StepsButtons>
+        <ButtonDivPosition>
+        <BoxWrapper>{getCompStep()}</BoxWrapper>
+          <button
+            onClick={() => setStep(step - 1)}
+            disabled={step === 1}
+            style={{textDecoration: 'none', color: '$marineBlue',}}
+          >
+            Go Back
+          </button>
+          <ButtonNext onClick={() => step !== 4 && setStep(step + 1)}>Next Step</ButtonNext>
+        </ButtonDivPosition>
+      </StepsButtons>
+      
 
-    <button
-    onClick={() => setStep(step - 1)}
-    disabled={step === 1}
->
-  Voltar
-</button>
-    <ButtonNext onClick={() => step !== 4 && setStep(step + 1)}>Next Step</ButtonNext>
-      </>
+
       {/*<Component {...pageProps} />*/}
     </Container>
   )

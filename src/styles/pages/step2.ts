@@ -9,13 +9,13 @@ export const WrapperContainerStep2 = styled('div', {
 export const FormDiv = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  padding: '3.5rem',
+  flexWrap: 'wrap',
   gap: '1rem',
   justifyContent: 'flex-end',
 
   p: {
     color: '$gray300',
-    fontSize: '0.8rem'
+    fontSize: '0.8rem',
   }
 });
 
@@ -35,10 +35,12 @@ export const ButtonNextStep2 = styled('button', {
 export const DivTeste = styled('div', {
   border: '1px solid $lightGray',
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
+  padding: '1rem',
+  width: '4rem',
+  borderRadius: '4px',
   gap: '1rem',
   cursor: 'pointer',
-  padding: '1rem',
 
   '&:hover': {
     border: '1px solid $purplishBlue',

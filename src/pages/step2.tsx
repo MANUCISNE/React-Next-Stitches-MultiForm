@@ -17,35 +17,36 @@ export default function Step2() {
       id: 'plan1',
       title: 'Arcade',
       price: '$9/mo',
-      img: '/ArcadePlanIcon',
+      img: '/images/icon-arcade.svg',
     },
     {
       id: 'plan2',
       title: 'Advanced',
       price: '$12/mo',
-      img: '/ArcadePlanIcon',
+      img: '/images/icon-advanced.svg',
     },
     {
       id: 'plan3',
       title: 'Pro',
       price: '$15/mo',
-      img: '/ArcadePlanIcon',
+      img: '/images/icon-pro.svg',
     },
   ];
 
   return (
     <WrapperContainerStep2>
 
-      <FormDiv>
       <h2>Select your plan</h2>
       <p>You have the option of monthly or yearly biling.</p>
+      
+      <FormDiv style={{ display: 'flex', flexDirection: 'row' }}> 
       {plans.map((plan) => (
         <DivTeste
           key={plan.id}
           className={`plan ${selectedPlan === plan.id ? 'selected' : ''}`}
           onClick={() => setSelectedPlan(plan.id)}
         >
-          <Image src={plan.img} alt={''} width={20} height={20}/>
+          <Image src={plan.img} alt={''} width={35} height={35}/>
           <h3>{plan.title}</h3>
           <p>{plan.price}</p>
         </DivTeste>
@@ -65,12 +66,12 @@ export default function Step2() {
           </Flex>
         </SwitchBox>
         
-      {selectedPlan && (
-        <ButtonNextStep2 style={{textDecoration: 'none', color: '$gray900',}}>
+        {/*{selectedPlan && (
+        <ButtonNextStep2 >
           <Link href="/step3">Next Step</Link>
         </ButtonNextStep2>
       )}
-      <Link href="/step1" style={{textDecoration: 'none', color: '$gray900',}}>Go Back</Link>
+      <Link href="/step1" style={{textDecoration: 'none', color: '$gray900',}}>Go Back</Link>*/}
       </FormDiv>
       
 

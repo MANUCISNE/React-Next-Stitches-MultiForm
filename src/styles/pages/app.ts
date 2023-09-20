@@ -18,7 +18,6 @@ export const FlexWrapper = styled("div", {
 
 export const CenterWrapper = styled("div", {
   maxWidth: "500px",
-  width: "100%",
   position: 'absolute',
   display: 'flex',
   padding: '1.5rem',
@@ -53,4 +52,12 @@ export const ButtonNext = styled('button', {
   transition: '0.1s',
 })
 
+export const StepsButtons = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+})
 
+export const ButtonDivPosition = styled('div', {
+  display: 'flex',
+  justifyContent: 'space-between',
+})
