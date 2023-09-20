@@ -1,35 +1,23 @@
 import { styled } from ".."
 
 export const WrapperContainerStep1 = styled('div', {
-  margin: 'auto',
-  display: 'flex',
-  padding: '1rem',
-  background: '$white',
-  height: '28rem',
-  width: '48rem',
-  borderRadius: '8px',
+
 });
 
 export const FormDiv = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  padding: '8rem 5rem 1rem 6rem',
-  gap: '0.8rem',
+  padding: '3.5rem',
+  gap: '1rem',
   justifyContent: 'flex-end',
+
+  p: {
+    color: '$gray300',
+    fontSize: '0.8rem'
+  }
 });
 
-export const ButtonNextStep1 = styled('button', {
-  fontSize: '$geral',
-  cursor: 'pointer',
-  border: 'none',
-  borderRadius: '0.4rem',
-  backgroundColor: '$marineBlue',
-  color: '$white',
-  minWidth: '8rem',
-  maxWidth: '8rem',
-  padding: '0.8rem 1.2rem',
-  transition: '0.1s',
-})
+
 
 export const Label = styled('label', {
   marginBottom: '0.5rem',

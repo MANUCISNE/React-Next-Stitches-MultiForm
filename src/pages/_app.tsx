@@ -1,13 +1,17 @@
 import type { AppProps } from 'next/app'
 import { globalStyles } from '../styles/global'
-
-import { BoxWrapper, ButtonWrapper, CenterWrapper, Container, FlexWrapper, HStackWrapper } from '../styles/pages/app'
 import { useState } from 'react'
+
+import { BoxWrapper, ButtonNext, CenterWrapper, Container } from '../styles/pages/app'
+import Image from "next/image";
+
 import Step1 from './step1'
 import Step2 from './step2'
 import Step3 from './step3'
 import Step4 from './step4'
 import Step from '../components/ProgressBar'
+
+import SideBar from "../assets/bg-sidebar-desktop.svg"
 
 globalStyles()
 
@@ -33,37 +37,30 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <Container>
-    <FlexWrapper>
-      <CenterWrapper>
-        <HStackWrapper>
-          {Steps.map((item) => (
-            <Step
-              key={item}
-              index={item}
-              active={step === item}
-            />
-          ))}
-        </HStackWrapper>
+      <Image src={SideBar} alt={""} width={300} height={450} />
 
-        <hr />
+        <CenterWrapper>
+        {Steps.map((item) => (
+          <Step
+            key={item}
+            index={item}
+            active={step === item}
+          />
+        ))}
 
-        <BoxWrapper>{getCompStep()}</BoxWrapper>
 
-        <HStackWrapper>
-          <ButtonWrapper
-            onClick={() => setStep(step - 1)}
-            disabled={step === 1}
-          >
-            Voltar
-          </ButtonWrapper>
-          <ButtonWrapper
-            onClick={() => step !== 4 && setStep(step + 1)}
-          >
-            {step === 3 ? "Enviar" : "Próximo"}
-          </ButtonWrapper>
-        </HStackWrapper>
-      </CenterWrapper>
-    </FlexWrapper>
+        </CenterWrapper>
+      <>
+      <BoxWrapper>{getCompStep()}</BoxWrapper>
+
+    <button
+    onClick={() => setStep(step - 1)}
+    disabled={step === 1}
+>
+  Voltar
+</button>
+    <ButtonNext onClick={() => step !== 4 && setStep(step + 1)}>Next Step</ButtonNext>
+      </>
       {/*<Component {...pageProps} />*/}
     </Container>
   )

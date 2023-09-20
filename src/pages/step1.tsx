@@ -6,9 +6,7 @@ import {
   Label,
   WrapperContainerStep1,
 } from "../styles/pages/step1";
-import Image from "next/image";
 
-import SideBar from "../assets/bg-sidebar-desktop.svg";
 
 export default function Step1() {
   const [username, setUsername] = useState("");
@@ -32,8 +30,6 @@ export default function Step1() {
 
   return (
     <WrapperContainerStep1>
-      <Image src={SideBar} alt={""} width={300} height={450} />
-
       <FormDiv>
         <h2>Personal info</h2>
         <p>Please provide your name, email address, and phone number</p>
@@ -62,7 +58,6 @@ export default function Step1() {
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
         {!valid && <p>This field is required</p>}
-        <ButtonNextStep1 onClick={validateForm}>Next Step</ButtonNextStep1>
       </FormDiv>
     </WrapperContainerStep1>
   );

@@ -1,12 +1,14 @@
 import { styled } from ".."
 
 export const Container = styled('div', {
+  margin: '14rem auto',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
-  height: '100%',
-  width: '100%',
-  position: 'absolute',
+  padding: '1rem',
+  background: '$white',
+  height: '28rem',
+  width: '48rem',
+  borderRadius: '8px',
 })
 
 export const FlexWrapper = styled("div", {
@@ -17,8 +19,12 @@ export const FlexWrapper = styled("div", {
 export const CenterWrapper = styled("div", {
   maxWidth: "500px",
   width: "100%",
-  paddingY: "10",
-  paddingX: "2",
+  position: 'absolute',
+  display: 'flex',
+  padding: '1.5rem',
+  gap: '2rem',
+  marginBottom: '10rem',
+  justifyContent: 'center',
   flexDirection: "column",
 });
 
@@ -34,13 +40,17 @@ export const BoxWrapper = styled("div", {
   width: "80%",
 });
 
-export const ButtonWrapper = styled("button", {
-  paddingY: "2",
-  paddingX: "4",
-  borderRadius: "4px",
-  fontWeight: "bold",
-  cursor: "pointer",
-  transition: "background-color 0.3s ease",
-});
+export const ButtonNext = styled('button', {
+  fontSize: '$geral',
+  cursor: 'pointer',
+  border: 'none',
+  borderRadius: '0.4rem',
+  backgroundColor: '$marineBlue',
+  color: '$white',
+  minWidth: '8rem',
+  maxWidth: '8rem',
+  padding: '0.8rem 1.2rem',
+  transition: '0.1s',
+})
 
 

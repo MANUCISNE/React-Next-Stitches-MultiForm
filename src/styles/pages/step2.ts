@@ -3,21 +3,20 @@ import { blackA } from '@radix-ui/colors';
 import * as Switch from '@radix-ui/react-switch';
 
 export const WrapperContainerStep2 = styled('div', {
-  margin: 'auto',
-  display: 'flex',
-  padding: '2rem',
-  background: '$white',
-  height: '28rem',
-  width: '48rem',
-  borderRadius: '8px',
+
 });
 
 export const FormDiv = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  padding: '8rem 5rem 1rem 6rem',
+  padding: '3.5rem',
   gap: '1rem',
   justifyContent: 'flex-end',
+
+  p: {
+    color: '$gray300',
+    fontSize: '0.8rem'
+  }
 });
 
 export const ButtonNextStep2 = styled('button', {

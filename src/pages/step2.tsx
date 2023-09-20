@@ -36,8 +36,6 @@ export default function Step2() {
   return (
     <WrapperContainerStep2>
 
-    <Image src={SideBar} alt={""} width={300} height={450} />
-
       <FormDiv>
       <h2>Select your plan</h2>
       <p>You have the option of monthly or yearly biling.</p>
