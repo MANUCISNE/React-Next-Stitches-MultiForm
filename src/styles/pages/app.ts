@@ -29,20 +29,34 @@ export const CenterWrapper = styled("div", {
   maxWidth: "500px",
   position: 'absolute',
   display: 'flex',
-  padding: '1.5rem',
+  padding: '1.9rem',
   gap: '2rem',
-  marginBottom: '10rem',
+  marginBottom: '8rem',
   justifyContent: 'center',
   flexDirection: "column",
 });
 
-export const HStackWrapper = styled("div", {
-  display: "flex",
-  flexDirection: "column",
-  gap: "1rem",
-  justifyContent: "space-between",
-  marginTop: "4",
-});
+export const TextDivProgressBar = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  color: '$white',
+  position: 'absolute',
+  width: '10rem',
+  marginLeft: '2rem',
+  marginTop: 0,
+
+  h5: {
+    fontSize: '0.7rem',
+    color: '$coolGray',
+  },
+  
+  p: {
+    width: '100%',
+    fontSize: '0.8rem',
+    fontWeight: 'bold',
+    color: '$white',
+  }
+})
 
 export const BoxWrapper = styled("div", {
   width: "80%",
@@ -59,10 +73,6 @@ export const ButtonNext = styled('button', {
   maxWidth: '8rem',
   padding: '0.8rem 1.2rem',
   transition: '0.1s',
-})
-
-export const StepsButtons = styled('div', {
-  
 })
 
 export const ButtonDivPosition = styled('div', {

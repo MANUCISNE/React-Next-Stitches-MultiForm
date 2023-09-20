@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app'
 import { globalStyles } from '../styles/global'
 import { useState } from 'react'
 
-import { BoxWrapper, ButtonContainer, ButtonDivTeste, ButtonNext, CenterWrapper, Container } from '../styles/pages/app'
+import { BoxWrapper, ButtonContainer, ButtonDivTeste, ButtonNext, CenterWrapper, Container, TextDivProgressBar } from '../styles/pages/app'
 import Image from "next/image";
 
 import Step1 from './step1'
@@ -34,19 +34,46 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   };
 
-  const Steps = [1, 2, 3, 4];
+  const Steps = [
+    {
+      item: 1,
+      title: 'STEP 1',
+      description: 'YOUR INFO'
+    },
+    {
+      item: 2,
+      title: 'STEP 2',
+      description: 'SELECT PLAN'
+    },
+    {
+      item: 3,
+      title: 'STEP 3',
+      description: 'ADD-ONS'
+    },
+    {
+      item: 4,
+      title: 'STEP 4',
+      description: 'SUMMARY'
+    }
+  ];
+
 
   return (
     <Container>
       <Image src={SideBar} alt={""} width={350} height={420} />
 
       <CenterWrapper>
-        {Steps.map((item) => (
+        {Steps.map((stepItem) => (
           <Step
-            key={item}
-            index={item}
-            active={step === item}
-          />
+            key={stepItem.item}
+            index={stepItem.item}
+            active={step === stepItem.item}
+          >
+          <TextDivProgressBar>
+            <h5>{stepItem.title}</h5>
+            <p>{stepItem.description}</p>
+          </TextDivProgressBar>
+          </Step>
         ))}
         </CenterWrapper>
       

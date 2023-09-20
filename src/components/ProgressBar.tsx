@@ -32,14 +32,13 @@ const StepBox = styled("div", {
 interface StepProps {
   index: number;
   active: boolean;
+  children: any;
 }
 
-const Step: React.FC<StepProps> = ({ index, active }) => {
+export default function Step({ index, active, children }: StepProps) {
   return (
     <StepWrapper>
-      <StepBox active={active}>{index}</StepBox>
+      <StepBox active={active}>{index}{children}</StepBox>
     </StepWrapper>
   );
 };
-
-export default Step;

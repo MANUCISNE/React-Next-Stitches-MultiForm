@@ -5,7 +5,6 @@ import { DivTeste, Flex, FormDiv, Label, SwitchBox, SwitchRoot, SwitchThumb, Wra
 
 export default function Step2() {
   const [selectedPlan, setSelectedPlan] = useState('');
-  const [mode, setMode] = useState("monthly");
   const plans = [
     {
       id: 'plan1',

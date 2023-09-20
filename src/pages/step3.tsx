@@ -1,31 +1,85 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
+import { CheckIcon } from '@radix-ui/react-icons';
+import { CheckboxIndicator, CheckboxRoot, Flex, FormDiv, Label, WrapperContainerStep3 } from '../styles/pages/step3';
 
-export default function Step3 () {
-  const [selectedOption, setSelectedOption] = useState('');
-  const options = ['Opção 1', 'Opção 2', 'Opção 3'];
+export default function Step3() {
+  const [selectedOptions, setSelectedOptions] = useState<any>([]);
+
+  const aleatoria = [
+    {
+      id: '1',
+      title: 'Online service',
+      price: '+$1/mo',
+    },
+    {
+      id: '2',
+      title: 'Large storage',
+      price: '+$2/mo',
+    },
+    {
+      id: '3',
+      title: 'Customizable Profile',
+      price: '$2/mo',
+    },
+  ]
+
 
   return (
-    <div>
-      <h2>Etapa 3: Adicionais ao Plano</h2>
-      <select
-        value={selectedOption}
-        onChange={(e) => setSelectedOption(e.target.value)}
-      >
-        <option value="">Selecione uma opção</option>
-        {options.map((option, index) => (
-          <option key={index} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
-      {selectedOption && (
-        <button>
-          <Link href="/step4">Next Step</Link>
-        </button>
-      )}
-      <br />
-      <Link href="/step2">Go Back</Link>
-    </div>
-  );
-};
+    <WrapperContainerStep3>
+      <FormDiv>
+        <h2>Pick add-ons</h2>
+        <p>Add-ons help enhance your gaming experience.</p>
+
+        
+        <Flex css={{ alignItems: 'center' }}>
+          <CheckboxRoot defaultChecked id="c1">
+            <CheckboxIndicator>
+              <CheckIcon />
+            </CheckboxIndicator>
+          </CheckboxRoot>
+          <Label css={{ paddingLeft: 15, color: '$green500' }} htmlFor="c1">
+            <h3>
+              Online service
+            </h3>
+            <p>
+              Access to multiplayer games
+            </p>
+          </Label>
+        </Flex>
+        
+        <Flex css={{ alignItems: 'center' }}>
+          <CheckboxRoot id="c1">
+            <CheckboxIndicator>
+              <CheckIcon />
+            </CheckboxIndicator>
+          </CheckboxRoot>
+          <Label css={{ paddingLeft: 15, color: '$green500' }} htmlFor="c1">
+            <h3>
+              Large storage
+            </h3>
+            <p>
+              Extra 11B of cloud sav
+            </p>
+          </Label>
+        </Flex>
+
+        <Flex css={{ alignItems: 'center' }}>
+          <CheckboxRoot id="c1">
+            <CheckboxIndicator>
+              <CheckIcon />
+            </CheckboxIndicator>
+          </CheckboxRoot>
+          <Label css={{ paddingLeft: 15, color: '$green500' }} htmlFor="c1">
+            <h3>
+              Customizable Profile
+            </h3>
+            <p>
+            Custom theme on vour profile
+            </p>
+          </Label>
+        </Flex>
+
+      </FormDiv>
+    </WrapperContainerStep3>
+  )
+}
