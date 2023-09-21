@@ -17,13 +17,16 @@ export default function Step3() {
             </CheckboxIndicator>
           </CheckboxRoot>
           <Label css={{ paddingLeft: 15, color: '$green500' }} htmlFor="c1">
-            <h3>
+            <h4>
               Online service
-            </h3>
+            </h4>
             <p>
               Access to multiplayer games
             </p>
           </Label>
+          <p>
+            +$1/mo
+          </p>
         </Flex>
         
         <Flex css={{ alignItems: 'center' }}>
@@ -33,13 +36,16 @@ export default function Step3() {
             </CheckboxIndicator>
           </CheckboxRoot>
           <Label css={{ paddingLeft: 15, color: '$green500' }} htmlFor="c1">
-            <h3>
+            <h4>
               Large storage
-            </h3>
+            </h4>
             <p>
               Extra 11B of cloud sav
             </p>
           </Label>
+            <p>
+              +$2/mo
+            </p>
         </Flex>
 
         <Flex css={{ alignItems: 'center' }}>
@@ -49,13 +55,16 @@ export default function Step3() {
             </CheckboxIndicator>
           </CheckboxRoot>
           <Label css={{ paddingLeft: 15, color: '$green500' }} htmlFor="c1">
-            <h3>
+            <h4>
               Customizable Profile
-            </h3>
+            </h4>
             <p>
             Custom theme on vour profile
             </p>
           </Label>
+            <p>
+              +$2/mo
+            </p>
         </Flex>
 
       </FormDiv>

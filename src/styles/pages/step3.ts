@@ -9,10 +9,15 @@ export const WrapperContainerStep3 = styled('div', {
 });
 
 export const FormDiv = styled('div', {
-
+  display: 'flex',
+  flexDirection: 'column',
+  paddingLeft: '1rem',
+  gap: '1rem',
+  
   p: {
-    color: '$gray300',
-    fontSize: '0.8rem',
+    color: '$gray800',
+    margin: '.1rem',
+    fontSize: '.8rem',
   }
 });
 
@@ -58,9 +63,13 @@ export const Label = styled('label', {
 
 export const Flex = styled('div', {
   display: 'flex',
+  padding: '1rem',
+  width: '100%',
+  gap: '2rem',
+  borderRadius: '6px',
+  border: '1px solid $purplishBlue',
 
   '&:hover': {
-    borderColor: '$purplishBlue',
     cursor: 'pointer',
     backgroundColor: '$magnolia',
   }
