@@ -1,4 +1,5 @@
 import { styled } from ".."
+import HeaderBar from "../assets/bg-sidebar-mobile.svg"
 
 export const Container = styled('div', {
   margin: '14rem auto',
@@ -9,6 +10,10 @@ export const Container = styled('div', {
   height: '28rem',
   width: '48rem',
   borderRadius: '8px',
+
+  '@media (max-width: 375px)': {
+    
+  },
 })
 
 export const ButtonContainer = styled("div", {
@@ -75,7 +80,6 @@ export const ButtonNext = styled('button', {
   minWidth: '8rem',
   maxWidth: '8rem',
   padding: '0.8rem 1.2rem',
-  transition: '0.1s',
 })
 
 export const GoBackButton = styled('button', {

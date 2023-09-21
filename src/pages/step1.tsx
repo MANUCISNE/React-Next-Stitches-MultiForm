@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import {
+  ErrorMessage,
   FormDiv,
   InputField,
   Label,
   WrapperContainerStep1,
 } from "../styles/pages/step1";
-
+import { styled } from "@stitches/react";
 
 export default function Step1() {
   const [username, setUsername] = useState("");
@@ -35,6 +36,8 @@ export default function Step1() {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          onBlur={validateForm}
+          required
         />
 
         <Label>Email Adress</Label>
@@ -43,6 +46,8 @@ export default function Step1() {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          onBlur={validateForm}
+          required
         />
 
         <Label>Phone Number</Label>
@@ -51,9 +56,16 @@ export default function Step1() {
           placeholder="(DD)999999999"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
+          onBlur={validateForm}
+          required
         />
-        {!valid && <p>This field is required</p>}
+        {!valid && (
+          <ErrorMessage style={{color: 'red', fontWeight: 'bold'}}>
+            This field is required
+          </ErrorMessage>
+        )}
+
       </FormDiv>
     </WrapperContainerStep1>
   );
-}
+};

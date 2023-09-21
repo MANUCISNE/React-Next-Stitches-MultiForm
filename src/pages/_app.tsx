@@ -11,7 +11,6 @@ import Step4 from './step4'
 import Step from '../components/ProgressBar'
 
 import SideBar from "../assets/bg-sidebar-desktop.svg"
-import Link from 'next/link';
 
 globalStyles()
 

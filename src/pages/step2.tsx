@@ -40,7 +40,7 @@ export default function Step2() {
               // onClick={() => setSelectedPlan(plan.id)}
             >
               <Image src={plan.img} alt={''} width={35} height={35}/>
-              <h3>{plan.title}</h3>
+              <h5>{plan.title}</h5>
               <p>{plan.price}</p>
             </CardSelectPlan>
           ))}

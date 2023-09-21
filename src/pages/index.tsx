@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Container } from '../styles/pages/app';
 import { HomeContainer } from '../styles/pages/home';
 
 export default function Home() {

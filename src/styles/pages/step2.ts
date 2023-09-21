@@ -18,6 +18,9 @@ export const FormDiv = styled('div', {
 
 export const CardBox = styled('div', {
   width: '100%',
+  display: 'flex',
+  gap: '1rem',
+  margin: '2rem 0',
 });
 
 export const CardSelectPlan = styled('div', {
@@ -25,8 +28,8 @@ export const CardSelectPlan = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   padding: '1rem',
-  width: '8rem',
-  borderRadius: '4px',
+  width: '10rem',
+  borderRadius: '6px',
   gap: '1rem',
   cursor: 'pointer',
 

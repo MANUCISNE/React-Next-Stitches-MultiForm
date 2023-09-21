@@ -8,7 +8,7 @@ export const FormDiv = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   paddingLeft: '1rem',
-  marginBottom: '0.9rem',
+  marginBottom: '0.7rem',
   gap: '.5rem',
   justifyContent: 'flex-end',
 
@@ -18,14 +18,6 @@ export const FormDiv = styled('div', {
   }
 });
 
-
-
-export const Label = styled('label', {
-  marginBottom: '0.5rem',
-  fontSize: '1rem',
-  color: '$gray700',
-});
-
 export const InputField = styled('input', {
   padding: '0.5rem',
   border: '1px solid #ccc',
@@ -33,15 +25,19 @@ export const InputField = styled('input', {
   fontSize: '1rem',
   outline: 'none',
 
-    '&:hover': {
+  '&:hover': {
       borderColor: '$purplishBlue',
       cursor: 'pointer',
       backgroundColor: '$magnolia',
   }
 });
 
-export const ErrorText = styled('p', {
-  color: 'red',
-  fontSize: '0.875rem',
+export const Label = styled('label', {
+  marginBottom: '0.5rem',
+  fontSize: '1rem',
+  color: '$gray700',
+});
+
+export const ErrorMessage = styled('p', {
   marginTop: '0.25rem',
 });
