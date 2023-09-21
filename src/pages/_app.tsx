@@ -1,7 +1,7 @@
 import { globalStyles } from '../styles/global'
 import { useState } from 'react'
 
-import { BoxWrapper, ButtonContainer, ButtonDivTeste, ButtonNext, CenterWrapper, Container, TextDivProgressBar } from '../styles/pages/app'
+import { BoxWrapper, ButtonContainer, ButtonDivTeste, ButtonNext, CenterWrapper, Container, GoBackButton, TextDivProgressBar } from '../styles/pages/app'
 import Image from "next/image";
 
 import Step1 from './step1'
@@ -82,15 +82,12 @@ export default function App() {
         <BoxWrapper>{getCompStep()}</BoxWrapper>
         <ButtonDivTeste>
           {step !== 1 && step !== 4 && (
-            <Link href={''}>
-            <button
+            <GoBackButton
               onClick={() => setStep(step - 1)}
               disabled={step === 1}
-              style={{textDecoration: 'none', color: '$marineBlue', background: 'transparent', border: 'none'}}
             >
               Go Back
-            </button>
-            </Link>
+            </GoBackButton>
           )}
 
           {step !== 4 && (

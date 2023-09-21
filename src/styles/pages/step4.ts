@@ -9,10 +9,7 @@ export const StepFourContainerBox = styled('div', {
 
   p: {
     color: '$gray300',
-    fontSize: '0.8rem',
-    display: 'flex',
-    alignItems: 'center',
+    fontSize: '0.8rem'
   }
-
   
 });

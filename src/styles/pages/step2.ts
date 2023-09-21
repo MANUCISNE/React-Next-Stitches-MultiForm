@@ -9,14 +9,18 @@ export const WrapperContainerStep2 = styled('div', {
 });
 
 export const FormDiv = styled('div', {
-
+  width: '100%',
   p: {
     color: '$gray300',
     fontSize: '0.8rem',
   }
 });
 
-export const DivTeste = styled('div', {
+export const CardBox = styled('div', {
+  width: '100%',
+});
+
+export const CardSelectPlan = styled('div', {
   border: '1px solid $lightGray',
   display: 'flex',
   flexDirection: 'column',

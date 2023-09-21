@@ -64,6 +64,8 @@ export const BoxWrapper = styled("div", {
 });
 
 export const ButtonNext = styled('button', {
+  position: "absolute",
+  marginLeft: '15rem',
   fontSize: '$geral',
   cursor: 'pointer',
   border: 'none',
@@ -74,6 +76,19 @@ export const ButtonNext = styled('button', {
   maxWidth: '8rem',
   padding: '0.8rem 1.2rem',
   transition: '0.1s',
+})
+
+export const GoBackButton = styled('button', {
+  textDecoration: 'none',
+  color: '$marineBlue',
+  background: 'transparent',
+  border: 'none',
+  fontWeight: 'bold',
+  
+  '&:hover': {
+    color: '#0000ff',
+    cursor: 'pointer',
+  }
 })
 
 export const ButtonDivPosition = styled('div', {

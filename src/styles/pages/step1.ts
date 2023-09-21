@@ -8,6 +8,7 @@ export const FormDiv = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   paddingLeft: '1rem',
+  marginBottom: '0.9rem',
   gap: '.5rem',
   justifyContent: 'flex-end',
 
