@@ -21,10 +21,6 @@ export default function Step1() {
     const isUsernameValid = !!username.trim();
 
     setValid(isEmailValid && isPhoneValid && isUsernameValid);
-
-    if (isEmailValid && isPhoneValid && isUsernameValid) {
-      // Avance para a próxima etapa
-    }
   };
 
   return (

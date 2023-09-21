@@ -1,4 +1,3 @@
-import type { AppProps } from 'next/app'
 import { globalStyles } from '../styles/global'
 import { useState } from 'react'
 
@@ -16,7 +15,7 @@ import Link from 'next/link';
 
 globalStyles()
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App() {
   const [step, setStep] = useState(1);
 
   const getCompStep = () => {
@@ -98,8 +97,6 @@ export default function App({ Component, pageProps }: AppProps) {
             
         </ButtonDivTeste>
       </ButtonContainer>
-        
-      {/*<Component {...pageProps} />*/}
     </Container>
   )
 }

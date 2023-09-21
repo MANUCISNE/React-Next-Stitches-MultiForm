@@ -3,27 +3,6 @@ import { CheckIcon } from '@radix-ui/react-icons';
 import { CheckboxIndicator, CheckboxRoot, Flex, FormDiv, Label, WrapperContainerStep3 } from '../styles/pages/step3';
 
 export default function Step3() {
-  const [selectedOptions, setSelectedOptions] = useState<any>([]);
-
-  const aleatoria = [
-    {
-      id: '1',
-      title: 'Online service',
-      price: '+$1/mo',
-    },
-    {
-      id: '2',
-      title: 'Large storage',
-      price: '+$2/mo',
-    },
-    {
-      id: '3',
-      title: 'Customizable Profile',
-      price: '$2/mo',
-    },
-  ]
-
-
   return (
     <WrapperContainerStep3>
       <FormDiv>
