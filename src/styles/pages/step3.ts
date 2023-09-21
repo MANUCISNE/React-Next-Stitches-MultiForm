@@ -17,7 +17,7 @@ export const FormDiv = styled('div', {
   p: {
     color: '$gray800',
     margin: '.1rem',
-    fontSize: '.8rem',
+    fontSize: '.7rem',
   }
 });
 
@@ -59,10 +59,14 @@ export const Label = styled('label', {
   color: 'white',
   fontSize: 15,
   lineHeight: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
 });
 
 export const Flex = styled('div', {
   display: 'flex',
+  justifyContent: 'space-between',
   padding: '1rem',
   width: '100%',
   gap: '2rem',

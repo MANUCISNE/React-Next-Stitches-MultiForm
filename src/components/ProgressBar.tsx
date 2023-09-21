@@ -5,9 +5,11 @@ const StepWrapper = styled("div", {
   display: "flex",
   flexDirection: "column",
   zIndex: 2,
+  justifyContent: 'center'
 });
 
 const StepBox = styled("div", {
+  display: "flex",
   paddingTop: ".23rem",
   paddingLeft: ".55rem",
   borderRadius: "50%",
@@ -38,7 +40,8 @@ interface StepProps {
 export default function Step({ index, active, children }: StepProps) {
   return (
     <StepWrapper>
-      <StepBox active={active}>{index}{children}</StepBox>
+      {children}
+      <StepBox active={active}>{index}</StepBox>
     </StepWrapper>
   );
 };

@@ -25,25 +25,27 @@ export const ButtonDivTeste = styled("div", {
   width: "80%",
 });
 
+export const Boxtest = styled("div", {
+  background: 'red',
+  width: '5rem',
+});
+
 export const CenterWrapper = styled("div", {
-  maxWidth: "500px",
+  width: "12rem",
   position: 'absolute',
   display: 'flex',
-  padding: '1.9rem',
-  gap: '2rem',
-  marginBottom: '8rem',
-  justifyContent: 'center',
-  flexDirection: "column",
+  padding: '1.8rem',
+  gap: '1rem',
+  marginBottom: '12rem',
+  marginRight: '2rem',
+  flexDirection: "row",
+  flexWrap: 'wrap',
 });
 
 export const TextDivProgressBar = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   color: '$white',
-  position: 'absolute',
-  width: '10rem',
-  marginLeft: '2rem',
-  marginTop: 0,
 
   h5: {
     fontSize: '0.7rem',
@@ -51,7 +53,6 @@ export const TextDivProgressBar = styled('div', {
   },
   
   p: {
-    width: '100%',
     fontSize: '0.8rem',
     fontWeight: 'bold',
     color: '$white',

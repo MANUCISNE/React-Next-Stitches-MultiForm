@@ -63,16 +63,18 @@ export default function App() {
 
       <CenterWrapper>
         {Steps.map((stepItem) => (
+          <>
           <Step
             key={stepItem.item}
             index={stepItem.item}
             active={step === stepItem.item}
           >
+          </Step>
           <TextDivProgressBar>
             <h5>{stepItem.title}</h5>
             <p>{stepItem.description}</p>
           </TextDivProgressBar>
-          </Step>
+          </>
         ))}
         </CenterWrapper>
       

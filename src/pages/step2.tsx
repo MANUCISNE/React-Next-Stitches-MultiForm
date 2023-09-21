@@ -28,14 +28,15 @@ export default function Step2() {
 
   return (
     <WrapperContainerStep2>
-      <FormDiv> 
+      <FormDiv role="list"> 
       <h2>Select your plan</h2>
       <p>You have the option of monthly or yearly biling.</p>
       {plans.map((plan) => (
         <DivTeste
+          role="listitem"
           key={plan.id}
           className={`plan ${selectedPlan === plan.id ? 'selected' : ''}`}
-          onClick={() => setSelectedPlan(plan.id)}
+          // onClick={() => setSelectedPlan(plan.id)}
         >
           <Image src={plan.img} alt={''} width={35} height={35}/>
           <h3>{plan.title}</h3>

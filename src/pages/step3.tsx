@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CheckIcon } from '@radix-ui/react-icons';
 import { CheckboxIndicator, CheckboxRoot, Flex, FormDiv, Label, WrapperContainerStep3 } from '../styles/pages/step3';
 
@@ -24,7 +24,7 @@ export default function Step3() {
               Access to multiplayer games
             </p>
           </Label>
-          <p>
+          <p style={{color: '#0000ff'}}>
             +$1/mo
           </p>
         </Flex>
@@ -43,9 +43,9 @@ export default function Step3() {
               Extra 11B of cloud sav
             </p>
           </Label>
-            <p>
-              +$2/mo
-            </p>
+          <p style={{ color: '#0000ff', display: 'flex', justifyContent: 'flex-end'}}>
+            +$2/mo
+          </p>
         </Flex>
 
         <Flex css={{ alignItems: 'center' }}>
@@ -62,9 +62,9 @@ export default function Step3() {
             Custom theme on vour profile
             </p>
           </Label>
-            <p>
-              +$2/mo
-            </p>
+          <p style={{color: '#0000ff'}}>
+            +$2/mo
+          </p>
         </Flex>
 
       </FormDiv>

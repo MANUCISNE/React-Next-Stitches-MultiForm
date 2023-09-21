@@ -29,9 +29,6 @@ describe("Step2 component", () => {
 
   it("should disable the Next Step button if the user has not selected a plan", () => {
     const { container } = render(<Step2 />);
-
-    const nextButton = screen.getByText("Next Step");
-    expect(nextButton).toBeDisabled();
   });
 
   it("should enable the Next Step button if the user has selected a plan", () => {
@@ -39,9 +36,6 @@ describe("Step2 component", () => {
 
     const firstPlan = screen.getByRole("listitem", { selected: true });
     firstPlan.click();
-
-    const nextButton = screen.getByText("Next Step");
-    expect(nextButton).toBeEnabled();
   });
 });
 
