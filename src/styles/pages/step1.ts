@@ -10,7 +10,6 @@ export const FormDiv = styled('div', {
   paddingLeft: '1rem',
   marginBottom: '0.7rem',
   gap: '.5rem',
-  justifyContent: 'flex-end',
 
   p: {
     color: '$gray300',

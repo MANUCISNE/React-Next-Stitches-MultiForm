@@ -45,6 +45,7 @@ export const SwitchBox = styled('div', {
   padding: '0.8rem',
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'center',
 });
 
 export const SwitchRoot = styled(Switch.Root, {

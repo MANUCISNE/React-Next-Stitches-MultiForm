@@ -37,7 +37,7 @@ export default function Step2() {
               role="listitem"
               key={plan.id}
               className={`plan ${selectedPlan === plan.id ? 'selected' : ''}`}
-              // onClick={() => setSelectedPlan(plan.id)}
+              onClick={() => setSelectedPlan(plan.id)}
             >
               <Image src={plan.img} alt={''} width={35} height={35}/>
               <h5>{plan.title}</h5>

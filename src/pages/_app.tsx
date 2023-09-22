@@ -1,7 +1,7 @@
 import { globalStyles } from '../styles/global'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import { BoxWrapper, ButtonContainer, ButtonDivTeste, ButtonNext, CenterWrapper, Container, GoBackButton, TextDivProgressBar } from '../styles/pages/app'
+import { BoxWrapper, ButtonContainer, ButtonDivTeste, ButtonNext, CenterWrapper, Container, ContainerImageBox, GoBackButton, Picture, TextDivProgressBar } from '../styles/pages/app'
 import Image from "next/image";
 
 import Step1 from './step1'
@@ -10,12 +10,26 @@ import Step3 from './step3'
 import Step4 from './step4'
 import Step from '../components/ProgressBar'
 
-import SideBar from "../assets/bg-sidebar-desktop.svg"
-
 globalStyles()
-
+  
 export default function App() {
   const [step, setStep] = useState(1);
+  const [screenWidth, setScreenWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const updateScreenWidth = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', updateScreenWidth);
+
+
+    updateScreenWidth();
+
+    return () => {
+      window.removeEventListener('resize', updateScreenWidth);
+    };
+  }, []);
 
   const getCompStep = () => {
     switch (step) {
@@ -55,10 +69,15 @@ export default function App() {
     }
   ];
 
-
   return (
-    <Container>
-      <Image src={SideBar} alt={""} width={350} height={420} />
+    <ContainerImageBox>
+      {screenWidth <= 375 && (
+        <Image src="/images/bg-sidebar-mobile.svg" alt="Imagem 2" width={375} height={172} style={{marginBottom: '55rem' }}/>
+        )}
+      <Container>
+        <Picture>
+          <Image src="/images/bg-sidebar-desktop.svg" alt="Imagem 1" width={210} height={420} />
+        </Picture>
 
       <CenterWrapper>
         {Steps.map((stepItem) => (
@@ -95,6 +114,7 @@ export default function App() {
             
         </ButtonDivTeste>
       </ButtonContainer>
-    </Container>
+      </Container>
+      </ContainerImageBox>
   )
 }

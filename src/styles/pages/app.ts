@@ -1,5 +1,9 @@
-import { styled } from ".."
-import HeaderBar from "../assets/bg-sidebar-mobile.svg"
+import { css, styled } from ".."
+
+export const ContainerImageBox = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+})
 
 export const Container = styled('div', {
   margin: '14rem auto',
@@ -12,7 +16,19 @@ export const Container = styled('div', {
   borderRadius: '8px',
 
   '@media (max-width: 375px)': {
-    
+    position: 'absolute',
+    height: '22rem',
+    width: '19rem',
+    marginTop: '5rem',
+    marginLeft: '2.3rem',
+    borderRadius: '2rem',
+    zIndex: 5,
+  },
+})
+
+export const Picture = styled('picture', {
+  '@media (max-width: 375px)': {
+    display: 'none',
   },
 })
 
@@ -45,6 +61,16 @@ export const CenterWrapper = styled("div", {
   marginRight: '2rem',
   flexDirection: "row",
   flexWrap: 'wrap',
+
+  '@media (max-width: 375px)': {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '5rem',
+    flexWrap: 'nowrap',
+    position: 'absolute',
+    marginBottom: '27rem',
+    marginLeft: '1.3rem',
+  },
 });
 
 export const TextDivProgressBar = styled('div', {
@@ -61,7 +87,11 @@ export const TextDivProgressBar = styled('div', {
     fontSize: '0.8rem',
     fontWeight: 'bold',
     color: '$white',
-  }
+  },
+
+  '@media (max-width: 375px)': {
+    display: 'none',
+  },
 })
 
 export const BoxWrapper = styled("div", {
@@ -80,6 +110,10 @@ export const ButtonNext = styled('button', {
   minWidth: '8rem',
   maxWidth: '8rem',
   padding: '0.8rem 1.2rem',
+
+  '@media (max-width: 375px)': {
+    display: 'none',
+  },
 })
 
 export const GoBackButton = styled('button', {
