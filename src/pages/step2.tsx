@@ -29,7 +29,7 @@ export default function Step2() {
   return (
     <WrapperContainerStep2>
       <FormDiv role="list"> 
-      <h2>Select your plan</h2>
+        <h2>Select your plan</h2>
         <p>You have the option of monthly or yearly biling.</p>
         <CardBox>
             {plans.map((plan) => (

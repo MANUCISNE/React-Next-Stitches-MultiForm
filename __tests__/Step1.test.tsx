@@ -3,45 +3,102 @@ import "@testing-library/jest-dom/extend-expect";
 import { render, screen } from "@testing-library/react";
 import Step1 from "../src/pages/step1";
 
-
 describe("Step1 component", () => {
-  it("should render the form with the correct labels", () => {
-    const { container } = render(<Step1 />);
+  it("should display an error message if the username is not filled in", () => {
+    render(<Step1 />);
 
-    const form = screen.getByRole("form");
-    expect(form).toBeInTheDocument();
+    // Get the username input element
+    const usernameInput = screen.getByPlaceholderText("Username");
 
-    const usernameLabel = screen.getByText("Name");
-    expect(usernameLabel).toBeInTheDocument();
+    // Blur the input element to trigger validation
+    usernameInput.blur();
 
-    const emailLabel = screen.getByText("Email Adress");
-    expect(emailLabel).toBeInTheDocument();
-
-    const phoneLabel = screen.getByText("Phone Number");
-    expect(phoneLabel).toBeInTheDocument();
+    // Expect the error message to be displayed
+    expect(screen.getByText("This field is required")).toBeInTheDocument();
   });
 
-  it("should validate the form correctly", () => {
-    const { container } = render(<Step1 />);
+  it("should not display an error message if the username is filled in", () => {
+    render(<Step1 />);
 
-    const form = screen.getByRole("form");
-    const usernameInput = screen.getByPlaceholderText("Username") as HTMLInputElement;
-    const emailInput = screen.getByPlaceholderText("Email") as HTMLInputElement;
-    const phoneInput = screen.getByPlaceholderText("(DD)999999999") as HTMLInputElement;
+    // Get the username input element
+    const usernameInput = screen.getByPlaceholderText("Username");
 
-    // Initially, the form should be invalid
-    expect(form).toHaveClass("invalid");
+    // Type a username into the input element
+    usernameInput.type("John Doe");
 
-    // Fill in the form with valid data
-    usernameInput.value = "John Doe";
-    emailInput.value = "john.doe@example.com";
-    phoneInput.value = "(11)999999999";
+    // Blur the input element to trigger validation
+    usernameInput.blur();
 
-    // Simulate the user submitting the form
-    form.dispatchEvent(new Event("submit"));
+    // Expect the error message not to be displayed
+    expect(screen.queryByText("This field is required")).not.toBeInTheDocument();
+  });
+});
 
-    // Now, the form should be valid
-    expect(form).not.toHaveClass("invalid");
+describe("Step1 component", () => {
+  it("should display an error message if the email is not in a valid format", () => {
+    render(<Step1 />);
+
+    // Get the email input element
+    const emailInput = screen.getByPlaceholderText("Email");
+
+    // Type an invalid email address into the input element
+    emailInput.type("invalid_email");
+
+    // Blur the input element to trigger validation
+    emailInput.blur();
+
+    // Expect the error message to be displayed
+    expect(screen.getByText("This field is required")).toBeInTheDocument();
+  });
+
+  it("should not display an error message if the email is in a valid format", () => {
+    render(<Step1 />);
+
+    // Get the email input element
+    const emailInput = screen.getByPlaceholderText("Email");
+
+    // Type a valid email address into the input element
+    emailInput.type("john.doe@example.com");
+
+    // Blur the input element to trigger validation
+    emailInput.blur();
+
+    // Expect the error message not to be displayed
+    expect(screen.queryByText("This field is required")).not.toBeInTheDocument();
+  });
+});
+
+describe("Step1 component", () => {
+  it("should display an error message if the phone number is not in a valid format", () => {
+    render(<Step1 />);
+
+    // Get the phone number input element
+    const phoneNumberInput = screen.getByPlaceholderText("(DD)999999999");
+
+    // Type an invalid phone number into the input element
+    phoneNumberInput.type("invalid_phone_number");
+
+    // Blur the input element to trigger validation
+    phoneNumberInput.blur();
+
+    // Expect the error message to be displayed
+    expect(screen.getByText("This field is required")).toBeInTheDocument();
+  });
+
+  it("should not display an error message if the phone number is in a valid format", () => {
+    render(<Step1 />);
+
+    // Get the phone number input element
+    const phoneNumberInput = screen.getByPlaceholderText("(DD)999999999");
+
+    // Type a valid phone number into the input element
+    phoneNumberInput.type("(11)999999999");
+
+    // Blur the input element to trigger validation
+    phoneNumberInput.blur();
+
+    // Expect the error message not to be displayed
+    expect(screen.queryByText("This field is required")).not.toBeInTheDocument();
   });
 });
 

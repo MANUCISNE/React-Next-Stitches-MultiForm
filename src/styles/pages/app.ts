@@ -17,7 +17,7 @@ export const Container = styled('div', {
 
   '@media (max-width: 375px)': {
     position: 'absolute',
-    height: '22rem',
+    height: '26rem',
     width: '19rem',
     marginTop: '5rem',
     marginLeft: '2.3rem',
@@ -40,6 +40,7 @@ export const ButtonContainer = styled("div", {
 
   '@media (max-width: 375px)': {
     marginLeft: '1rem',
+    marginTop: '-2.3rem',
   },
 });
 
@@ -48,6 +49,10 @@ export const ButtonDivTeste = styled("div", {
   justifyContent: "space-between",
   marginTop: "1.5rem",
   width: "80%",
+
+  '@media (max-width: 375px)': {
+    //marginTop: "-.8rem",
+  },
 });
 
 export const Boxtest = styled("div", {
@@ -72,8 +77,9 @@ export const CenterWrapper = styled("div", {
     width: '5rem',
     flexWrap: 'nowrap',
     position: 'absolute',
-    marginBottom: '27rem',
+    marginBottom: '30rem',
     marginLeft: '1.3rem',
+    zIndex: '-3'
   },
 });
 
@@ -139,7 +145,10 @@ export const GoBackButton = styled('button', {
   },
 
   '@media (max-width: 375px)': {
-    //marginTop: '9rem',
+    position: 'absolute',
+    marginLeft: '-3rem',
+    marginTop: '5rem',
+    padding: '.8rem',
   },
 })
 

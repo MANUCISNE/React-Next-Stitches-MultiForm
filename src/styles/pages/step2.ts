@@ -12,8 +12,14 @@ export const FormDiv = styled('div', {
   width: '100%',
   p: {
     color: '$gray300',
-    fontSize: '0.8rem',
-  }
+    fontSize: '.9rem',
+  },
+
+  '@media (max-width: 375px)': {
+    height: '90%',
+    gap: '.8rem',
+    marginTop: '-2.8rem',
+  },
 });
 
 export const CardBox = styled('div', {
@@ -26,6 +32,8 @@ export const CardBox = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'nowrap',
+    gap: '.5rem',
+    borderRadius: '6px',
   },
 });
 
@@ -93,6 +101,7 @@ export const SwitchThumb = styled(Switch.Thumb, {
 });
 
 export const Flex = styled('div', { display: 'flex' });
+
 export const Label = styled('label', {
   color: 'white',
   fontSize: 15,

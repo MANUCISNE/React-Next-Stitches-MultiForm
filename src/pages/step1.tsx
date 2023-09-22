@@ -6,7 +6,6 @@ import {
   Label,
   WrapperContainerStep1,
 } from "../styles/pages/step1";
-import { styled } from "@stitches/react";
 
 export default function Step1() {
   const [username, setUsername] = useState("");

@@ -8,6 +8,8 @@ export const StepFourContainerBox = styled('div', {
   alignItems: 'center',
 
   p: {
+    display: 'flex',
+    alignItems: 'center',
     color: '$gray300',
     fontSize: '0.8rem'
   }

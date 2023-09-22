@@ -16,7 +16,7 @@ export default function Step3() {
               <CheckIcon />
             </CheckboxIndicator>
           </CheckboxRoot>
-          <Label css={{ paddingLeft: 15, color: '$green500' }} htmlFor="c1">
+          <Label css={{ paddingLeft: 15, color: '$marineBlue' }} htmlFor="c1">
             <h4>
               Online service
             </h4>
@@ -35,7 +35,7 @@ export default function Step3() {
               <CheckIcon />
             </CheckboxIndicator>
           </CheckboxRoot>
-          <Label css={{ paddingLeft: 15, color: '$green500' }} htmlFor="c1">
+          <Label css={{ paddingLeft: 15, color: '$marineBlue' }} htmlFor="c1">
             <h4>
               Large storage
             </h4>
@@ -54,7 +54,7 @@ export default function Step3() {
               <CheckIcon />
             </CheckboxIndicator>
           </CheckboxRoot>
-          <Label css={{ paddingLeft: 15, color: '$green500' }} htmlFor="c1">
+          <Label css={{ paddingLeft: 15, color: '$marineBlue' }} htmlFor="c1">
             <h4>
               Customizable Profile
             </h4>

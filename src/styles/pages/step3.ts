@@ -18,7 +18,18 @@ export const FormDiv = styled('div', {
     color: '$gray800',
     margin: '.1rem',
     fontSize: '.7rem',
-  }
+  },
+
+  '@media (max-width: 375px)': {
+    gap: '.5rem',
+    paddingLeft: '.5rem',
+    paddingRight: '.8rem',
+    margin: '-0.5rem',
+
+    p: {
+      fontSize: '.8rem',
+    }
+  },
 });
 
 export const DivTeste = styled('div', {
@@ -34,7 +45,7 @@ export const DivTeste = styled('div', {
   '&:hover': {
     border: '1px solid $purplishBlue',
     backgroundColor: '$magnolia'
-  }
+  },
 })
 
 export const CheckboxRoot = styled(Checkbox.Root, {
@@ -76,5 +87,9 @@ export const Flex = styled('div', {
   '&:hover': {
     cursor: 'pointer',
     backgroundColor: '$magnolia',
-  }
+  },
+
+  '@media (max-width: 375px)': {
+    padding: '.5rem',
+  },
 })
