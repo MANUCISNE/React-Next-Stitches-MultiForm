@@ -21,6 +21,12 @@ export const CardBox = styled('div', {
   display: 'flex',
   gap: '1rem',
   margin: '2rem 0',
+
+  '@media (max-width: 375px)': {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'nowrap',
+  },
 });
 
 export const CardSelectPlan = styled('div', {
@@ -36,9 +42,21 @@ export const CardSelectPlan = styled('div', {
   '&:hover': {
     border: '1px solid $purplishBlue',
     backgroundColor: '$magnolia'
-  }
+  },
+
+  '@media (max-width: 375px)': {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '15rem', 
+  },
 })
 
+export const ContentTextMobile = styled('div', {
+  '@media (max-width: 375px)': {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+});
 
 export const SwitchBox = styled('div', {
   backgroundColor: '$magnolia',

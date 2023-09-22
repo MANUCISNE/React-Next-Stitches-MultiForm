@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 
-import { CardBox, CardSelectPlan, Flex, FormDiv, Label, SwitchBox, SwitchRoot, SwitchThumb, WrapperContainerStep2 } from '../styles/pages/step2';
+import { CardBox, CardSelectPlan, ContentTextMobile, Flex, FormDiv, Label, SwitchBox, SwitchRoot, SwitchThumb, WrapperContainerStep2 } from '../styles/pages/step2';
 
 export default function Step2() {
   const [selectedPlan, setSelectedPlan] = useState('');
@@ -39,9 +39,11 @@ export default function Step2() {
               className={`plan ${selectedPlan === plan.id ? 'selected' : ''}`}
               onClick={() => setSelectedPlan(plan.id)}
             >
-              <Image src={plan.img} alt={''} width={35} height={35}/>
-              <h5>{plan.title}</h5>
-              <p>{plan.price}</p>
+                <Image src={plan.img} alt={''} width={35} height={35} />
+                <ContentTextMobile>
+                  <h5>{plan.title}</h5>
+                  <p>{plan.price}</p>
+                </ContentTextMobile>
             </CardSelectPlan>
           ))}
         </CardBox>
