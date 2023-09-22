@@ -37,6 +37,10 @@ export const ButtonContainer = styled("div", {
   flexDirection: "column",
   width: "100%",
   marginLeft: "3rem",
+
+  '@media (max-width: 375px)': {
+    marginLeft: '1rem',
+  },
 });
 
 export const ButtonDivTeste = styled("div", {
@@ -96,6 +100,10 @@ export const TextDivProgressBar = styled('div', {
 
 export const BoxWrapper = styled("div", {
   width: "80%",
+
+  '@media (max-width: 375px)': {
+    width: "93%",
+  },
 });
 
 export const ButtonNext = styled('button', {
@@ -112,7 +120,9 @@ export const ButtonNext = styled('button', {
   padding: '0.8rem 1.2rem',
 
   '@media (max-width: 375px)': {
-    display: 'none',
+    marginLeft: '9rem',
+    marginTop: '6rem',
+    padding: '0.8rem 0.8rem',
   },
 })
 
@@ -126,7 +136,11 @@ export const GoBackButton = styled('button', {
   '&:hover': {
     color: '#0000ff',
     cursor: 'pointer',
-  }
+  },
+
+  '@media (max-width: 375px)': {
+    //marginTop: '9rem',
+  },
 })
 
 export const ButtonDivPosition = styled('div', {

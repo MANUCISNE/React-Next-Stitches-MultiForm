@@ -14,7 +14,16 @@ export const FormDiv = styled('div', {
   p: {
     color: '$gray300',
     fontSize: '0.8rem'
-  }
+  },
+
+  '@media (max-width: 375px)': {
+    width: '100%',
+    marginTop: '2rem',
+
+    p: {
+      fontSize: '0.9rem'
+    },
+  },
 });
 
 export const InputField = styled('input', {
