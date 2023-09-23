@@ -9,7 +9,7 @@ import {
   WrapperContainerStep1,
 } from "../styles/pages/step1";
 
-export default function Step1({errorStyle, props}: any) {
+export default function Step1(props: any) {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -17,27 +17,37 @@ export default function Step1({errorStyle, props}: any) {
   });
 
   const [errors, setErrors] = useState({
-    name: false,
-    email: false,
-    phoneNumber: false,
+    name: '',
+    email: '',
+    phoneNumber: '',
   });
 
   const [styleError, setStyleError] = useState(false)
   
   const validateForm = () => {
-    const nameRegex = /^[A-Za-z]+$/;
+    const nameRegex = /^[A-Za-z 0-9]+$/
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    const phoneNumberRegex = /^\([0-9]{2}\) [0-9]{5}-[0-9]{4}$/;
+    const phoneNumberRegex = /^(\([0-9]{2}\) )?[0-9]{9}$/
 
-    const nameError = nameRegex.test(formData.username) 
-    const emailError = emailRegex.test(formData.email) 
-    const phoneNumberError = phoneNumberRegex.test(formData.phoneNumber)
+    const nameError = nameRegex.test(formData.username) ? '' : 'O nome deve conter apenas letras.';
+    const emailError = emailRegex.test(formData.email) ? '' : 'O email é inválido.';
+    const phoneNumberError = phoneNumberRegex.test(formData.phoneNumber) ? '' : 'O telefone é inválido.';
 
     setErrors({
       name: nameError,
       email: emailError,
       phoneNumber: phoneNumberError,
     });
+
+    if (formData.username === '' || formData.email === '' || formData.phoneNumber === '') {
+      setErrors({
+        name: nameError,
+        email: emailError,
+        phoneNumber: phoneNumberError,
+      });
+  
+      return true;
+    }
 
     if (nameError || emailError || phoneNumberError) {
       return false;
