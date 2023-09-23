@@ -21,7 +21,7 @@ export const FormDiv = styled('div', {
     marginTop: '2rem',
 
     p: {
-      fontSize: '0.9rem'
+      fontSize: '0.8rem'
     },
   },
 });
@@ -32,6 +32,13 @@ export const InputField = styled('input', {
   borderRadius: '4px',
   fontSize: '1rem',
   outline: 'none',
+
+  variants: {
+    valid: {
+      false: {
+        border: "2px solid red"
+    }}
+  },
 
   '&:hover': {
     borderColor: '$purplishBlue',
@@ -46,7 +53,52 @@ export const Label = styled('label', {
   color: '$gray700',
 });
 
-export const ErrorMessage = styled('p', {
-  marginTop: '18.5rem',
+export const ErrorMessageName = styled('p', {
+  fontWeight: 'bold',
+  position: 'absolute',
+  marginLeft: '15rem',
+  fontSize: '.78rem',
+  marginTop: '4.5rem',
+  width: '8rem',
+
+  '@media (max-width: 375px)': {
+    marginTop: '5.5rem',
+    position: 'absolute',
+    marginLeft: '6rem',
+    width: '10rem',
+    fontSize: '.78rem'
+  },
+});
+
+export const ErrorMessageEmail = styled('p', {
+  fontWeight: 'bold',
+  marginTop: '9.5rem',
+  position: 'absolute',
+  marginLeft: '15rem',
+  width: '8rem',
+
+  '@media (max-width: 375px)': {
+    marginTop: '10.4rem',
+    position: 'absolute',
+    marginLeft: '6rem',
+    width: '10rem',
+    fontSize: '.78rem'
+  },
+});
+
+export const ErrorMessagePhone = styled('p', {
+  fontWeight: 'bold',
+  marginTop: '14.5rem',
+  position: 'absolute',
+  marginLeft: '15rem',
+  width: '8rem',
+
+  '@media (max-width: 375px)': {
+    marginTop: '15.3rem',
+    position: 'absolute',
+    marginLeft: '6rem',
+    width: '10rem',
+    fontSize: '.78rem'
+  },
 });
 

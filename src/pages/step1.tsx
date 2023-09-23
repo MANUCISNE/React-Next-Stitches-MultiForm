@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
-  ErrorMessage,
+  ErrorMessageEmail,
+  ErrorMessageName,
+  ErrorMessagePhone,
   FormDiv,
   InputField,
   Label,
@@ -14,16 +16,32 @@ export default function Step1(props: any) {
     phoneNumber: "",
   });
 
-  const [valid, setValid] = useState(true);
-  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/;
-  const phoneRegex = /^\d{11}$/;
-
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+  });
+  
   const validateForm = () => {
-    const isEmailValid = emailRegex.test(formData.email);
-    const isPhoneValid = phoneRegex.test(formData.phoneNumber);
-    const isUsernameValid = !!formData.username.trim();
+    const nameRegex = /^[A-Za-z]+$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    const phoneNumberRegex = /^\([0-9]{2}\) [0-9]{5}-[0-9]{4}$/;
 
-    setValid(isEmailValid && isPhoneValid && isUsernameValid);
+    const nameError = nameRegex.test(formData.username) ? '' : 'O nome deve conter apenas letras.';
+    const emailError = emailRegex.test(formData.email) ? '' : 'O email é inválido.';
+    const phoneNumberError = phoneNumberRegex.test(formData.phoneNumber) ? '' : 'O telefone é inválido.';
+
+    setErrors({
+      name: nameError,
+      email: emailError,
+      phoneNumber: phoneNumberError,
+    });
+
+    if (nameError || emailError || phoneNumberError) {
+      return false;
+    }
+
+    return true;
   }
 
   const handleInputsChanges = (fieldName: string, value: string) => { 
@@ -49,6 +67,7 @@ export default function Step1(props: any) {
           onBlur={validateForm}
           required
         />
+        {errors.name && <ErrorMessageName style={{ color: 'red' }}>This field is required</ErrorMessageName>}
 
         <Label>Email Adress</Label>
         <InputField
@@ -59,6 +78,8 @@ export default function Step1(props: any) {
           onBlur={validateForm}
           required
         />
+        {errors.email && <ErrorMessageEmail style={{ color: 'red' }}>This field is required
+          </ErrorMessageEmail>}
 
         <Label>Phone Number</Label>
         <InputField
@@ -69,11 +90,8 @@ export default function Step1(props: any) {
           onBlur={validateForm}
           required
         />
-        {!valid && (
-          <ErrorMessage style={{color: 'red', fontWeight: 'bold', position: 'absolute'}}>
-            This field is required
-          </ErrorMessage>
-        )}
+        {errors.phoneNumber && <ErrorMessagePhone style={{color: 'red', fontWeight: 'bold', position: 'absolute'}}>This field is required
+          </ErrorMessagePhone>}
       </FormDiv>
     </WrapperContainerStep1>
   );
