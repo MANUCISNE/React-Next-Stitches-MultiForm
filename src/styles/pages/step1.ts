@@ -34,8 +34,8 @@ export const InputField = styled('input', {
   outline: 'none',
 
   variants: {
-    valid: {
-      false: {
+    styleError: {
+      true: {
         border: "2px solid red"
     }}
   },

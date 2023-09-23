@@ -1,8 +1,19 @@
 import { globalStyles } from '../styles/global'
 import { useEffect, useState } from 'react'
-
-import { BoxWrapper, ButtonContainer, ButtonDivTeste, ButtonNext, CenterWrapper, Container, ContainerImageBox, GoBackButton, Picture, TextDivProgressBar } from '../styles/pages/app'
 import Image from "next/image";
+
+import {
+  BoxWrapper,
+  ButtonContainer,
+  ButtonDivTeste,
+  ButtonNext,
+  CenterWrapper,
+  Container,
+  ContainerImageBox,
+  GoBackButton,
+  Picture,
+  TextDivProgressBar
+} from '../styles/pages/app'
 
 import Step1 from './step1'
 import Step2 from './step2'
@@ -76,50 +87,50 @@ export default function App() {
       {screenWidth <= 375 && (
         <Image src="/images/bg-sidebar-mobile.svg" alt="Imagem 2" width={375} height={172} style={{marginBottom: '55rem' }}/>
         )}
-      <Container>
-        <Picture>
-          <Image src="/images/bg-sidebar-desktop.svg" alt="Imagem 1" width={210} height={420} />
-        </Picture>
+          <Container>
+            <Picture>
+              <Image src="/images/bg-sidebar-desktop.svg" alt="Imagem 1" width={210} height={420} />
+            </Picture>
 
-      <CenterWrapper>
-        {Steps.map((stepItem) => (
-          <>
-          <Step
-            key={stepItem.item}
-            index={stepItem.item}
-            active={step === stepItem.item}
-          >
-          </Step>
-          <TextDivProgressBar>
-            <h5>{stepItem.title}</h5>
-            <p>{stepItem.description}</p>
-          </TextDivProgressBar>
-          </>
-        ))}
-        </CenterWrapper>
-      
-      <ButtonContainer>
-        <BoxWrapper>{getCompStep()}</BoxWrapper>
-        <ButtonDivTeste>
-          {step !== 1 && step !== 4 && (
-            <GoBackButton
-              onClick={() => setStep(step - 1)}
-              disabled={step === 1}
-            >
-              Go Back
-            </GoBackButton>
-          )}
+          <CenterWrapper>
+            {Steps.map((stepItem) => (
+              <>
+              <Step
+                key={stepItem.item}
+                index={stepItem.item}
+                active={step === stepItem.item}
+              >
+              </Step>
+              <TextDivProgressBar>
+                <h5>{stepItem.title}</h5>
+                <p>{stepItem.description}</p>
+              </TextDivProgressBar>
+              </>
+            ))}
+            </CenterWrapper>
+          
+          <ButtonContainer>
+            <BoxWrapper>{getCompStep()}</BoxWrapper>
+            <ButtonDivTeste>
+              {step !== 1 && step !== 4 && (
+                <GoBackButton
+                  onClick={() => setStep(step - 1)}
+                  disabled={step === 1}
+                >
+                  Go Back
+                </GoBackButton>
+              )}
 
-          {step !== 4 && (
-              <ButtonNext onClick={() => {
-                handleNext
-                step !== 4 && setStep(step + 1)
-              }}>Next Step</ButtonNext>
-          )}
-            
-        </ButtonDivTeste>
-      </ButtonContainer>
-      </Container>
+              {step !== 4 && (
+                  <ButtonNext onClick={() => {
+                    handleNext
+                    step !== 4 && setStep(step + 1)
+                  }}>Next Step</ButtonNext>
+              )}
+                
+            </ButtonDivTeste>
+          </ButtonContainer>
+        </Container>
       </ContainerImageBox>
   )
 }

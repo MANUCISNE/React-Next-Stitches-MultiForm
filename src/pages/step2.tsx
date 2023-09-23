@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import {
-  ButtonNext,
   CardBox,
   CardSelectPlan,
   ContentTextMobile,
@@ -14,9 +13,8 @@ import {
   WrapperContainerStep2,
 } from "../styles/pages/step2";
 
-export default function Step2(props) {
+export default function Step2(props: any) {
   const [selectedPlan, setSelectedPlan] = useState("");
-  const [billingCycle, setBillingCycle] = useState("");
   const plans = [
     {
       id: "plan1",
@@ -49,7 +47,7 @@ export default function Step2(props) {
               role="listitem"
               key={plan.id}
               className={`plan ${selectedPlan === plan.id ? "selected" : ""}`}
-              onClick={() => setSelectedPlan(plan.id)}
+              onClick={() => { setSelectedPlan(plan.id) }}
             >
               <Image src={plan.img} alt="" width={35} height={35} />
               <ContentTextMobile>
@@ -61,29 +59,19 @@ export default function Step2(props) {
         </CardBox>
 
         <SwitchBox>
-          <Flex css={{ alignItems: "center", color: "$marineBlue" }}>
-            <Label htmlFor="monthly" css={{ paddingRight: 15, color: "$blueMarine", fontWeight: "bold" }}>
+          <Flex css={{ alignItems: 'center', color: '$marineBlue' }}>
+            <Label htmlFor="monthly" css={{ paddingRight: 15, color: '$gray900', fontWeight: 'bold' }}>
               Monthly
             </Label>
-            <SwitchRoot
-              id="airplane-mode"
-              checked={billingCycle === "monthly"}
-              onChange={() => setBillingCycle("monthly")}
-            >
+            <SwitchRoot id="airplane-mode">
               <SwitchThumb />
             </SwitchRoot>
-            <Label htmlFor="yearly" css={{ paddingLeft: 15, color: "$blueMarine", fontWeight: "bold" }}>
+            <Label htmlFor="yearly" css={{ paddingLeft: 15, color: '$gray900', fontWeight: 'bold' }}>
               Yearly
             </Label>
-            <SwitchRoot
-              id="airplane-mode"
-              checked={billingCycle === "yearly"}
-              onChange={() => setBillingCycle("yearly")}
-            >
-              <SwitchThumb />
-            </SwitchRoot>
           </Flex>
         </SwitchBox>
+
       </FormDiv>
     </WrapperContainerStep2>
   );

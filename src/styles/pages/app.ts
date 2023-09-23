@@ -114,7 +114,7 @@ export const BoxWrapper = styled("div", {
 
 export const ButtonNext = styled('button', {
   position: "absolute",
-  marginLeft: '15rem',
+  marginLeft: '21rem',
   fontSize: '$geral',
   cursor: 'pointer',
   border: 'none',

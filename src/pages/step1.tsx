@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   ErrorMessageEmail,
   ErrorMessageName,
@@ -9,7 +9,7 @@ import {
   WrapperContainerStep1,
 } from "../styles/pages/step1";
 
-export default function Step1(props: any) {
+export default function Step1({errorStyle, props}: any) {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -17,19 +17,21 @@ export default function Step1(props: any) {
   });
 
   const [errors, setErrors] = useState({
-    name: '',
-    email: '',
-    phoneNumber: '',
+    name: false,
+    email: false,
+    phoneNumber: false,
   });
+
+  const [styleError, setStyleError] = useState(false)
   
   const validateForm = () => {
     const nameRegex = /^[A-Za-z]+$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     const phoneNumberRegex = /^\([0-9]{2}\) [0-9]{5}-[0-9]{4}$/;
 
-    const nameError = nameRegex.test(formData.username) ? '' : 'O nome deve conter apenas letras.';
-    const emailError = emailRegex.test(formData.email) ? '' : 'O email é inválido.';
-    const phoneNumberError = phoneNumberRegex.test(formData.phoneNumber) ? '' : 'O telefone é inválido.';
+    const nameError = nameRegex.test(formData.username) 
+    const emailError = emailRegex.test(formData.email) 
+    const phoneNumberError = phoneNumberRegex.test(formData.phoneNumber)
 
     setErrors({
       name: nameError,
@@ -60,6 +62,7 @@ export default function Step1(props: any) {
 
         <Label>Name</Label>
         <InputField
+          styleError={styleError}
           type="text"
           placeholder="Username"
           value={formData.username}
@@ -71,6 +74,7 @@ export default function Step1(props: any) {
 
         <Label>Email Adress</Label>
         <InputField
+          styleError={styleError}
           type="text"
           placeholder="Email"
           value={formData.email}
@@ -83,6 +87,7 @@ export default function Step1(props: any) {
 
         <Label>Phone Number</Label>
         <InputField
+          styleError={styleError}
           type="text"
           placeholder="(DD)999999999"
           value={formData.phoneNumber}

@@ -18,7 +18,7 @@ export const FormDiv = styled('div', {
   '@media (max-width: 375px)': {
     height: '90%',
     gap: '.8rem',
-    marginTop: '-2.8rem',
+    marginTop: '2rem',
   },
 });
 
@@ -32,10 +32,11 @@ export const CardBox = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'nowrap',
-    gap: '.5rem',
+    gap: '1rem',
+    margin: 'auto',
     borderRadius: '6px',
-  },
-});
+  }
+})
 
 export const CardSelectPlan = styled('div', {
   border: '1px solid $lightGray',
@@ -72,6 +73,10 @@ export const SwitchBox = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+
+  '@media (max-width: 375px)': {
+    marginTop: '1rem',
+  },
 });
 
 export const SwitchRoot = styled(Switch.Root, {
