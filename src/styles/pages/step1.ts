@@ -34,9 +34,9 @@ export const InputField = styled('input', {
   outline: 'none',
 
   '&:hover': {
-      borderColor: '$purplishBlue',
-      cursor: 'pointer',
-      backgroundColor: '$magnolia',
+    borderColor: '$purplishBlue',
+    cursor: 'pointer',
+    backgroundColor: '$magnolia',
   }
 });
 
@@ -47,5 +47,6 @@ export const Label = styled('label', {
 });
 
 export const ErrorMessage = styled('p', {
-  marginTop: '0.25rem',
+  marginTop: '18.5rem',
 });
+

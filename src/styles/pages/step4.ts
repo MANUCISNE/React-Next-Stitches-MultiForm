@@ -13,5 +13,4 @@ export const StepFourContainerBox = styled('div', {
     color: '$gray300',
     fontSize: '0.8rem'
   }
-  
 });

@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Step3 from "../src/pages/step3";
 
 describe("Step3 component", () => {
@@ -24,17 +24,7 @@ describe("Step3 component", () => {
     secondAddOn.click();
 
     const selectedAddOn = screen.getByRole("checkbox", { checked: true });
-    expect(selectedAddOn.textContent).toContain("Large");
+    expect(selectedAddOn.textContent).toContain("Large storage");
   });
 
-  it("should disable the Next Step button if the user has not selected any add-ons", () => {
-    const { container } = render(<Step3 />);
-  });
-
-  it("should enable the Next Step button if the user has selected at least one add-on", () => {
-    const { container } = render(<Step3 />);
-
-    const firstAddOn = screen.getByRole("checkbox", { checked: true });
-    firstAddOn.click();
-  });
 });

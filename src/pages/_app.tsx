@@ -34,15 +34,13 @@ export default function App() {
   const getCompStep = () => {
     switch (step) {
       case 1:
-        return <Step1 />;
+        return <Step1 handleNext={handleNext}/>;
       case 2:
         return <Step2 />;
       case 3:
         return <Step3 />;
       case 4:
         return <Step4 />;
-      default:
-        return <Step1 />;
     }
   };
 
@@ -68,6 +66,10 @@ export default function App() {
       description: 'SUMMARY'
     }
   ];
+
+  function handleNext(obj: {}) {
+    localStorage.setItem(`step${step}`, JSON.stringify(obj))
+  }
 
   return (
     <ContainerImageBox>
@@ -109,7 +111,10 @@ export default function App() {
           )}
 
           {step !== 4 && (
-            <ButtonNext onClick={() => step !== 4 && setStep(step + 1)}>Next Step</ButtonNext>
+              <ButtonNext onClick={() => {
+                handleNext
+                step !== 4 && setStep(step + 1)
+              }}>Next Step</ButtonNext>
           )}
             
         </ButtonDivTeste>

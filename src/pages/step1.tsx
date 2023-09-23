@@ -7,21 +7,32 @@ import {
   WrapperContainerStep1,
 } from "../styles/pages/step1";
 
-export default function Step1() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+export default function Step1(props: any) {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    phoneNumber: "",
+  });
+
   const [valid, setValid] = useState(true);
   const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/;
   const phoneRegex = /^\d{11}$/;
 
   const validateForm = () => {
-    const isEmailValid = emailRegex.test(email);
-    const isPhoneValid = phoneRegex.test(phoneNumber);
-    const isUsernameValid = !!username.trim();
+    const isEmailValid = emailRegex.test(formData.email);
+    const isPhoneValid = phoneRegex.test(formData.phoneNumber);
+    const isUsernameValid = !!formData.username.trim();
 
     setValid(isEmailValid && isPhoneValid && isUsernameValid);
-  };
+  }
+
+  const handleInputsChanges = (fieldName: string, value: string) => { 
+    setFormData({
+      ...formData, 
+      [fieldName]: value,
+    })
+    props.handleNext(formData)
+  }
 
   return (
     <WrapperContainerStep1>
@@ -33,8 +44,8 @@ export default function Step1() {
         <InputField
           type="text"
           placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={formData.username}
+          onChange={(e) => handleInputsChanges("username", e.target.value)}
           onBlur={validateForm}
           required
         />
@@ -43,8 +54,8 @@ export default function Step1() {
         <InputField
           type="text"
           placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={formData.email}
+          onChange={(e) => handleInputsChanges("email", e.target.value)}
           onBlur={validateForm}
           required
         />
@@ -53,17 +64,16 @@ export default function Step1() {
         <InputField
           type="text"
           placeholder="(DD)999999999"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
+          value={formData.phoneNumber}
+          onChange={(e) => handleInputsChanges("phoneNumber", e.target.value)}
           onBlur={validateForm}
           required
         />
         {!valid && (
-          <ErrorMessage style={{color: 'red', fontWeight: 'bold'}}>
+          <ErrorMessage style={{color: 'red', fontWeight: 'bold', position: 'absolute'}}>
             This field is required
           </ErrorMessage>
         )}
-
       </FormDiv>
     </WrapperContainerStep1>
   );

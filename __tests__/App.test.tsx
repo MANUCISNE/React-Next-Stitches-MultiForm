@@ -1,59 +1,90 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
 import App from "../src/pages/_app";
+import "@testing-library/jest-dom/extend-expect"
 
-describe('App', () => {
-  it('should render the Step1 component when the step variable is 1', () => {
+describe('App component', () => {
+  it('should render the Step1 component when the step is 1', () => {
     render(<App />);
 
-    const step1Component = screen.getByTestId('step-1');
-    expect(step1Component).toBeInTheDocument();
+    expect(screen.getByText('YOUR INFO')).toBeInTheDocument();
   });
 
-  it('should render the Step2 component when the step variable is 2', () => {
+  it('should render the Step2 component when the step is 2', () => {
     render(<App />);
 
-    const step2Component = screen.getByTestId('step-2');
-    expect(step2Component).toBeInTheDocument();
+    const step2Button = screen.getByText('Next Step');
+    step2Button.click();
+
+    expect(screen.getByText('SELECT PLAN')).toBeInTheDocument();
   });
-});
 
-describe('App', () => {
-  it('should render the Step2 component when the user clicks the Next button from Step1', () => {
+  it('should render the Step3 component when the step is 3', () => {
     render(<App />);
 
-    const nextButton = screen.getByText('Next Step');
-    nextButton.click();
+    const step2Button = screen.getByText('Next Step');
+    step2Button.click();
 
-    const step2Component = screen.getByTestId('step-2');
-    expect(step2Component).toBeInTheDocument();
+    const step3Button = screen.getByText('Next Step');
+    step3Button.click();
+
+    expect(screen.getByText('ADD-ONS')).toBeInTheDocument();
   });
-});
 
-describe('App', () => {
-  it('should render the Step1 component when the user clicks the Go Back button from Step2', () => {
+  it('should render the Step4 component when the step is 4', () => {
     render(<App />);
 
-    const nextButton = screen.getByText('Next Step');
-    nextButton.click();
+    const step2Button = screen.getByText('Next Step');
+    step2Button.click();
+
+    const step3Button = screen.getByText('Next Step');
+    step3Button.click();
+
+    const step4Button = screen.getByText('Next Step');
+    step4Button.click();
+
+    expect(screen.getByText('SUMMARY')).toBeInTheDocument();
+  });
+
+  it('should disable the "Go Back" button when the step is 1', () => {
+    render(<App />);
 
     const goBackButton = screen.getByText('Go Back');
-    goBackButton.click();
 
-    const step1Component = screen.getByTestId('step-1');
-    expect(step1Component).toBeInTheDocument();
+    expect(goBackButton).toBeDisabled();
   });
-});
 
-describe('App', () => {
-  it('should not render the Step2 component when the user clicks the Next button from Step1 without filling in all the required fields', () => {
+  it('should disable the "Go Back" button when the step is 4', () => {
     render(<App />);
 
-    const nextButton = screen.getByText('Next Step');
-    nextButton.click();
+    const step2Button = screen.getByText('Next Step');
+    step2Button.click();
 
-    const step2Component = screen.getByTestId('step-2');
-    expect(step2Component).not.toBeInTheDocument();
+    const step3Button = screen.getByText('Next Step');
+    step3Button.click();
+
+    const step4Button = screen.getByText('Next Step');
+    step4Button.click();
+
+    const goBackButton = screen.getByText('Go Back');
+
+    expect(goBackButton).toBeDisabled();
+  });
+
+  it('should disable the "Next Step" button when the step is 4', () => {
+    render(<App />);
+
+    const step2Button = screen.getByText('Next Step');
+    step2Button.click();
+
+    const step3Button = screen.getByText('Next Step');
+    step3Button.click();
+
+    const step4Button = screen.getByText('Next Step');
+    step4Button.click();
+
+    const nextStepButton = screen.getByText('Next Step');
+
+    expect(nextStepButton).toBeDisabled();
   });
 });

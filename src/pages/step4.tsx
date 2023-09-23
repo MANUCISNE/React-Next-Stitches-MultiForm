@@ -1,21 +1,29 @@
 import React from 'react';
-import Image from "next/image";
-import { StepFourContainerBox } from '../styles/pages/step4';
 
-import ThankYouIcon from "../assets/icon-thank-you.svg"
+export default function Step4(props) {
 
-export default function Step4() {
-
+  const step1FormData = JSON.parse(localStorage.getItem("FormData") || '{}');
+  
   return (
-    <>
-      <StepFourContainerBox>
-        <Image src={ThankYouIcon} alt={''} width={50} height={50} />
-        <h2>Thank you!</h2>
-        <p>
-          Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com
-        </p>
-      </StepFourContainerBox>
+    <div>
+      <h2>Summary</h2>
 
-    </>
+      <h3>Step 1</h3>
+      <p>Username: {step1FormData.username}</p>
+      <p>Email: {step1FormData.email}</p>
+      <p>Phone Number: {step1FormData.phoneNumber}</p>
+
+      <h3>Step 2</h3>
+      <p>Selected Plan: {step2FormData.selectedPlan}</p>
+      <p>Biling Cycle: {step2FormData.billingCycle}</p>
+
+      <h3>Step 3</h3>
+      <p>Add-ons:</p>
+      <ul>
+        {step3FormData.addons.map((addon: any) => (
+          <li key={addon}>{addon}</li>
+        ))}
+      </ul>
+    </div>
   );
 };
