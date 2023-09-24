@@ -1,16 +1,106 @@
 import { styled } from ".."
 
-export const StepFourContainerBox = styled('div', {
+export const WrapperContainerStep4 = styled('div', {
   display: 'flex',
-  flexDirection: 'column',
-  gap: '1rem',
   justifyContent: 'center',
   alignItems: 'center',
-
-  p: {
-    display: 'flex',
-    alignItems: 'center',
-    color: '$gray300',
-    fontSize: '0.8rem'
-  }
 });
+
+export const FormDiv = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  paddingLeft: '1rem',
+  gap: '1rem',
+  width: '25rem',
+  
+  p: {
+    color: '$gray800',
+    margin: '.1rem',
+    fontSize: '.7rem',
+  },
+
+  '@media (max-width: 375px)': {
+    gap: '.5rem',
+    paddingLeft: '.5rem',
+    paddingRight: '.8rem',
+    margin: '-0.5rem',
+
+    p: {
+      fontSize: '.8rem',
+    }
+  },
+});
+
+export const DivTeste = styled('div', {
+  border: '1px solid $lightGray',
+  display: 'flex',
+  flexDirection: 'column',
+  padding: '1rem',
+  width: '8rem',
+  borderRadius: '4px',
+  gap: '1rem',
+  cursor: 'pointer',
+
+  '&:hover': {
+    border: '1px solid $purplishBlue',
+    backgroundColor: '$magnolia'
+  },
+})
+
+export const Label = styled('label', {
+  color: 'white',
+  fontSize: 15,
+  lineHeight: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+});
+
+export const Flex = styled('div', {
+  display: 'flex',
+  justifyContent: 'space-between',
+  padding: '1rem',
+  width: '100%',
+  gap: '2rem',
+  borderRadius: '6px',
+  backgroundColor: '$magnolia',
+
+  '@media (max-width: 375px)': {
+    padding: '.5rem',
+  },
+})
+
+export const TotalPlansCalculate = styled('div', {
+  display: 'flex',
+  justifyContent: 'space-between',
+  padding: '1rem',
+  width: '100%',
+  gap: '2rem',
+  borderRadius: '6px',
+
+  '@media (max-width: 375px)': {
+    padding: '.5rem',
+  },
+})
+
+export const ConfirmButton = styled('button', {
+  position: 'absolute',
+  marginLeft: '23rem',
+  margin: '21rem',
+  fontSize: '$geral',
+  fontWeight: 'bold',
+  cursor: 'pointer',
+  border: 'none',
+  borderRadius: '0.4rem',
+  backgroundColor: 'blue',
+  color: '$white',
+  minWidth: '8rem',
+  maxWidth: '8rem',
+  padding: '0.8rem 1.2rem',
+
+  '@media (max-width: 375px)': {
+    marginLeft: '9rem',
+    marginTop: '3.5rem',
+    padding: '0.8rem 0.8rem',
+  },
+})

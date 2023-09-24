@@ -47,7 +47,7 @@ export default function App() {
       case 1:
         return <Step1 handleNext={handleNext}/>;
       case 2:
-        return <Step2 />;
+        return <Step2 handleNext={handleNext}/>;
       case 3:
         return <Step3 />;
       case 4:
@@ -112,7 +112,7 @@ export default function App() {
           <ButtonContainer>
             <BoxWrapper>{getCompStep()}</BoxWrapper>
             <ButtonDivTeste>
-              {step !== 1 && step !== 4 && (
+              {step !== 1 && (
                 <GoBackButton
                   onClick={() => setStep(step - 1)}
                   disabled={step === 1}

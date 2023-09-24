@@ -127,7 +127,7 @@ export const ButtonNext = styled('button', {
 
   '@media (max-width: 375px)': {
     marginLeft: '9rem',
-    marginTop: '6rem',
+    marginTop: '3.5rem',
     padding: '0.8rem 0.8rem',
   },
 })
@@ -147,7 +147,7 @@ export const GoBackButton = styled('button', {
   '@media (max-width: 375px)': {
     position: 'absolute',
     marginLeft: '-3rem',
-    marginTop: '5rem',
+    marginTop: '3.5rem',
     padding: '.8rem',
   },
 })

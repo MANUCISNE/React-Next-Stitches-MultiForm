@@ -10,9 +10,11 @@ export const WrapperContainerStep2 = styled('div', {
 
 export const FormDiv = styled('div', {
   width: '100%',
+
   p: {
     color: '$gray300',
     fontSize: '.9rem',
+    marginBottom: '.3rem'
   },
 
   '@media (max-width: 375px)': {
@@ -44,9 +46,27 @@ export const CardSelectPlan = styled('div', {
   flexDirection: 'column',
   padding: '1rem',
   width: '10rem',
+  height: '10rem',
   borderRadius: '6px',
   gap: '1rem',
   cursor: 'pointer',
+
+  h5: {
+    marginTop: '1rem',
+  },
+
+  span: {
+    fontSize: '0.8rem',
+  },
+
+  variants: {
+    selected: {
+      true: {
+        border: '1px solid $purplishBlue',
+        backgroundColor: '$magnolia'
+      }
+    }
+  },
 
   '&:hover': {
     border: '1px solid $purplishBlue',
@@ -57,6 +77,11 @@ export const CardSelectPlan = styled('div', {
     display: 'flex',
     flexDirection: 'row',
     width: '15rem', 
+    height: '4rem',
+
+    h5: {
+      marginTop: "-0.4rem"
+    },
   },
 })
 
