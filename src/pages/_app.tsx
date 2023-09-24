@@ -49,7 +49,7 @@ export default function App() {
       case 2:
         return <Step2 handleNext={handleNext}/>;
       case 3:
-        return <Step3 />;
+        return <Step3 handleNext={handleNext}/>;
       case 4:
         return <Step4 />;
     }

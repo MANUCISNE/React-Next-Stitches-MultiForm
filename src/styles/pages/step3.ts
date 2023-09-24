@@ -1,4 +1,3 @@
-import * as Checkbox from '@radix-ui/react-checkbox';
 import { violet, blackA } from '@radix-ui/colors';
 import { styled } from ".."
 
@@ -25,10 +24,17 @@ export const FormDiv = styled('div', {
     paddingLeft: '.5rem',
     paddingRight: '.8rem',
     margin: '-0.5rem',
+    marginTop: '1rem',
 
     p: {
       fontSize: '.8rem',
-    }
+    },
+
+    '@media (max-width: 375px)': {
+      width: '17.5rem',
+      marginBotton: '5rem'
+    },
+
   },
 });
 
@@ -48,26 +54,19 @@ export const DivTeste = styled('div', {
   },
 })
 
-export const CheckboxRoot = styled(Checkbox.Root, {
-  all: 'unset',
-  backgroundColor: 'white',
-  width: 25,
-  height: 25,
-  borderRadius: 4,
+export const AddonsOptions = styled('div', {
   display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  boxShadow: `0 2px 10px ${blackA.blackA7}`,
-  '&:hover': { backgroundColor: violet.violet3 },
-  '&:focus': { boxShadow: `0 0 0 2px black` },
-});
+  flexDirection: 'column',
+  gap: '1rem',
 
-export const CheckboxIndicator = styled(Checkbox.Indicator, {
-  color: violet.violet11,
-});
+  '@media (max-width: 375px)': {
+    marginBottom: '4rem'
+  },
+})
 
 export const Label = styled('label', {
   color: 'white',
+  width: '18rem',
   fontSize: 15,
   lineHeight: 1,
   display: 'flex',
@@ -77,10 +76,8 @@ export const Label = styled('label', {
 
 export const Flex = styled('div', {
   display: 'flex',
-  justifyContent: 'space-between',
   padding: '1rem',
   width: '100%',
-  gap: '2rem',
   borderRadius: '6px',
   border: '1px solid $purplishBlue',
 
@@ -93,3 +90,15 @@ export const Flex = styled('div', {
     padding: '.5rem',
   },
 })
+
+const CheckboxWrapper = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  width: '1rem',
+  height: '1rem',
+  backgroundColor: '$magnolia', // Substitua pelo valor desejado
+});
+
+const CheckIcon = styled('div', {
+  color: '$white', // Substitua pelo valor desejado
+});
