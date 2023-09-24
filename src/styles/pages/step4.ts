@@ -85,8 +85,6 @@ export const TotalPlansCalculate = styled('div', {
 
 export const ConfirmButton = styled('button', {
   position: 'absolute',
-  marginLeft: '23rem',
-  margin: '21rem',
   fontSize: '$geral',
   fontWeight: 'bold',
   cursor: 'pointer',

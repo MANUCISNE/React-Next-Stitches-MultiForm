@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { FormDiv, WrapperContainerStep4, Label, Flex, TotalPlansCalculate, ConfirmButton } from '../styles/pages/step4';
 import FinalPage from '../components/finalPage';
 
+
 export default function Step4() {
   const [isStep4Visible, setIsStep4Visible] = useState(true);
+  const [confirmButtonVisible, setConfirmButtonVisible] = useState(true);
   const [isFinalPageRendered, setIsFinalPageRendered] = useState(false);
 
   const handleClick = () => {
     setIsStep4Visible(false);
+    setConfirmButtonVisible(false)
     setIsFinalPageRendered(true);
   };
 
@@ -44,7 +47,8 @@ export default function Step4() {
         </FormDiv>
       )}
 
-      <ConfirmButton onClick={handleClick}>Confirm</ConfirmButton>
+      {confirmButtonVisible && <ConfirmButton style={{ marginTop: "21rem", marginLeft: "21rem" }} onClick={handleClick}>Confirm</ConfirmButton>}
+      
       {isFinalPageRendered && <FinalPage />}
     </WrapperContainerStep4>
   );
