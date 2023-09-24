@@ -70,6 +70,28 @@ export const Flex = styled('div', {
   },
 })
 
+export const ButtonChangePlanBox = styled('div', {})
+
+export const RenderStep2Button = styled('button', {
+  textDecoration: 'none',
+  color: '$marineBlue',
+  background: 'transparent',
+  border: 'none',
+  fontWeight: 'bold',
+
+  '&:hover': {
+    color: '#0000ff',
+    cursor: 'pointer',
+  },
+
+  '@media (max-width: 375px)': {
+    position: 'absolute',
+    marginLeft: '-3rem',
+    marginTop: '3.5rem',
+    padding: '.8rem',
+  },
+})
+
 export const TotalPlansCalculate = styled('div', {
   display: 'flex',
   justifyContent: 'space-between',
