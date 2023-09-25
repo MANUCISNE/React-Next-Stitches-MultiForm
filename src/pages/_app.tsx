@@ -48,7 +48,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const getCompStep = () => {
     switch (step) {
       case 1:
-        return <Step1 handleNext={handleNext}/>;
+        return <Step1 />;
       case 2:
         return <Step2 handleNext={handleNext}/>;
       case 3:

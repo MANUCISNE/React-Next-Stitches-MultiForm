@@ -9,7 +9,7 @@ import {
   WrapperContainerStep1,
 } from "../styles/pages/step1";
 
-export default function Step1(props: any) {
+export default function Step1() {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -61,7 +61,6 @@ export default function Step1(props: any) {
       ...formData, 
       [fieldName]: value,
     })
-    props.handleNext(formData)
   }
 
   return (
