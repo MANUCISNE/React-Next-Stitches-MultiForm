@@ -2,6 +2,8 @@ import { globalStyles } from '../styles/global'
 import { useEffect, useState } from 'react'
 import Image from "next/image";
 
+import { AppProps } from 'next/app';
+
 import {
   BoxWrapper,
   ButtonContainer,
@@ -20,10 +22,11 @@ import Step2 from './step2'
 import Step3 from './step3'
 import Step4 from './step4'
 import Step from '../components/ProgressBar'
+import { GlobalContextProvider } from '../contexts/FormStepContext';
 
 globalStyles()
   
-export default function App() {
+export default function App({ Component, pageProps }: AppProps) {
   const [step, setStep] = useState(1);
   const [screenWidth, setScreenWidth] = useState<number>(0);
 
@@ -83,7 +86,8 @@ export default function App() {
   }
 
   return (
-    <ContainerImageBox>
+    <GlobalContextProvider>
+      <ContainerImageBox {...pageProps}>
       {screenWidth <= 375 && (
         <Image src="/images/bg-sidebar-mobile.svg" alt="Imagem 2" width={375} height={172} style={{marginBottom: '55rem' }}/>
         )}
@@ -132,5 +136,6 @@ export default function App() {
           </ButtonContainer>
         </Container>
       </ContainerImageBox>
+    </GlobalContextProvider>
   )
 }

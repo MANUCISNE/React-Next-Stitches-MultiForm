@@ -4,6 +4,7 @@ export const WrapperContainerStep4 = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  marginTop: '1rem'
 });
 
 export const FormDiv = styled('div', {
@@ -58,38 +59,28 @@ export const Label = styled('label', {
 
 export const Flex = styled('div', {
   display: 'flex',
-  justifyContent: 'space-between',
   padding: '1rem',
   width: '100%',
-  gap: '2rem',
   borderRadius: '6px',
   backgroundColor: '$magnolia',
+  flexDirection: 'column',
 
   '@media (max-width: 375px)': {
     padding: '.5rem',
   },
 })
 
-export const ButtonChangePlanBox = styled('div', {})
+export const PlanTypeContainer = styled('div', {
+  display: 'flex',
+  width: '100%',
+  marginBottom: '1rem',
+  justifyContent: 'space-between'
+})
 
-export const RenderStep2Button = styled('button', {
-  textDecoration: 'none',
-  color: '$marineBlue',
-  background: 'transparent',
-  border: 'none',
-  fontWeight: 'bold',
-
-  '&:hover': {
-    color: '#0000ff',
-    cursor: 'pointer',
-  },
-
-  '@media (max-width: 375px)': {
-    position: 'absolute',
-    marginLeft: '-3rem',
-    marginTop: '3.5rem',
-    padding: '.8rem',
-  },
+export const AdditionalContainer = styled('div', {
+  display: 'flex',
+  width: '100%',
+  justifyContent: 'space-between'
 })
 
 export const TotalPlansCalculate = styled('div', {
@@ -117,10 +108,12 @@ export const ConfirmButton = styled('button', {
   minWidth: '8rem',
   maxWidth: '8rem',
   padding: '0.8rem 1.2rem',
+  marginTop: '24rem',
+  marginLeft: '26rem',
 
   '@media (max-width: 375px)': {
-    marginLeft: '9rem',
-    marginTop: '3.5rem',
+    marginLeft: '10rem',
+    marginTop: '34.5rem',
     padding: '0.8rem 0.8rem',
   },
 })

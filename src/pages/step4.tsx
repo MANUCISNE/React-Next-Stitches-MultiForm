@@ -1,52 +1,59 @@
-import React, { useEffect, useState } from "react";
-import {
-  FormDiv,
-  WrapperContainerStep4,
-  Label,
-  Flex,
-  TotalPlansCalculate,
-  ConfirmButton,
-  ButtonChangePlan,
-  ButtonChangePlanBox,
-  RenderStep2Button,
-} from "../styles/pages/step4";
-import FinalPage from "../components/finalPage";
-import Link from "next/link";
-import Step2 from "./step2";
+import React, { useEffect, useState } from 'react';
+import { FormDiv, WrapperContainerStep4, Label, Flex, TotalPlansCalculate, ConfirmButton, PlanTypeContainer, AdditionalContainer } from '../styles/pages/step4';
+import FinalPage from '../components/finalPage';
+import { useGlobalContext } from '../contexts/FormStepContext';
 
 export default function Step4() {
+  const { additional, plansMonth, plansYearly } = useGlobalContext();
   const [isStep4Visible, setIsStep4Visible] = useState(true);
   const [confirmButtonVisible, setConfirmButtonVisible] = useState(true);
   const [isFinalPageRendered, setIsFinalPageRendered] = useState(false);
-  const [isStep2PageRendered, setIsStep2PageRendered] = useState(false);
+  const [typePlan, setTypePlan] = useState(false)
+  const [data, setData] = useState({
+    plans: {...plansMonth},
+    selectedAdditional: {...additional}, 
+    plan: '(Month)'
+  })
 
-  const [step2Data, setStep2Data] = useState({});
-  const [step3Data, setStep3Data] = useState({});
-  const [packageType, setPackageType] = useState({});
+  useEffect(() => {
+    let localStoragePackage = localStorage.getItem('package');
+    let localPackage = localStoragePackage?.includes('true') ? true : false
+    setTypePlan(localPackage)
+  }, []);
+
+  function mountShowData() {
+    let obj = {}
+    if(typePlan && additional) {
+      const selectedAdditional = additional.filter(plan => plan.checked === true)
+      obj = {...plansYearly, plan: '(Yearly)'}
+      setData(obj)
+    } else if(!typePlan && additional) {
+      const selectedAdditional = additional.filter(plan => plan.checked === true)
+      obj = {...plansMonth, plan: '(Month)'}
+      setData(obj)
+    }
+  }
+
+  useEffect(() => {
+    mountShowData()
+  }, [typePlan])
 
   const handleClick = () => {
     setIsStep4Visible(false);
-    setConfirmButtonVisible(false);
+    setConfirmButtonVisible(false)
     setIsFinalPageRendered(true);
   };
 
-
-  const renderStep2 = () => <Step2/>
-
-  useEffect(() => {
-    const dadosArmazenados2 = localStorage.getItem("step2");
-    const dadosArmazenados3 = localStorage.getItem("step3");
-    const dadosTypePlan = localStorage.getItem("package");
-
-    if (dadosArmazenados2 && dadosArmazenados3 && dadosTypePlan) {
-      const obj = JSON.parse(dadosArmazenados2);
-      const obj2 = JSON.parse(dadosArmazenados3);
-      const obj3 = JSON.parse(dadosTypePlan);
-      setStep2Data(obj);
-      setStep3Data(obj2);
-      setPackageType(obj3);
-    }
-  }, []);
+  const selectedFiltered = additional?.filter(add => add.checked === true)
+  const valueSelected = selectedFiltered?.map((add) => add.value)
+  if(typePlan) {
+    valueSelected?.push(plansYearly.value)
+  } else {
+    valueSelected?.push(plansMonth.value)
+  }
+  const soma = valueSelected.reduce((accumulator, valueCurrent) => {
+    return accumulator + valueCurrent;
+  }, 0);
 
   return (
     <WrapperContainerStep4>
@@ -55,50 +62,38 @@ export default function Step4() {
           <h2>Finishing up</h2>
           <p>Double-check everything looks OK before confirming.</p>
 
-          <Flex css={{ alignItems: "center" }}>
-            <Label css={{ paddingLeft: 15, color: "#0000ff" }} htmlFor="c1">
-              <h4>
-                {step2Data.title} {packageType ? "(Monthly)" : "(Yearly)"}
-              </h4>
-              <ButtonChangePlanBox>
-                  <RenderStep2Button
-                    onClick={() => setIsStep2PageRendered(true)}
-                  >
-                    Change
-                </RenderStep2Button>
-                {isStep2PageRendered && <Step2/>}
-              </ButtonChangePlanBox>
-            </Label>
-            <p style={{ color: "#0000ff" }}>{step2Data.price}</p>
+          <Flex css={{ alignItems: 'center' }}>
+            <PlanTypeContainer>
+              <Label css={{ paddingLeft: 15, color: '#0000ff' }} htmlFor="c1">
+                <h4>{data.title} {data.plan}</h4>
+                <p>Change</p>
+              </Label>
+              <p style={{ color: '#0000ff' }}>{data.price}</p>
+            </PlanTypeContainer>
+
+            {selectedFiltered?.map((item, index) => (
+              <AdditionalContainer key={index}>
+                <Label css={{ paddingLeft: 15, color: '#c4c4cc' }} htmlFor="c1">
+                  <p>{item.name}</p>
+                </Label>
+                <Label>
+                  <p style={{ color: '#0000ff' }}>{item.price}</p>
+                </Label>
+              </AdditionalContainer>
+            ))}
           </Flex>
 
-          <Flex css={{ alignItems: "center" }}>
-            <Label css={{ paddingLeft: 15, color: "#0000ff" }} htmlFor="c1">
-              <p>Online service</p>
-              <p>Larger storage</p>
+          <TotalPlansCalculate css={{ alignItems: 'center' }}>
+            <Label css={{ paddingLeft: 15, color: '#ccc' }} htmlFor="c1">
+              <p>Total {data.plan}</p>
             </Label>
-            <p style={{ color: "#0000ff" }}>+$10/yr</p>
-            <p style={{ color: "#0000ff" }}>+$20/yr</p>
-          </Flex>
-
-          <TotalPlansCalculate css={{ alignItems: "center" }}>
-            <Label css={{ paddingLeft: 15, color: "#ccc" }} htmlFor="c1">
-              <p>Total (per year)</p>
-            </Label>
-            <p style={{ color: "#0000ff" }}>$90/yr</p>
+            <p style={{ color: '#0000ff' }}>${soma}/{typePlan ? 'yr' : 'mo'}</p>
           </TotalPlansCalculate>
         </FormDiv>
       )}
 
-      {confirmButtonVisible && (
-        <ConfirmButton
-          style={{ marginTop: "21rem", marginLeft: "21rem" }}
-          onClick={handleClick}
-        >
-          Confirm
-        </ConfirmButton>
-      )}
-
+      {confirmButtonVisible && <ConfirmButton onClick={handleClick}>Confirm</ConfirmButton>}
+      
       {isFinalPageRendered && <FinalPage />}
     </WrapperContainerStep4>
   );

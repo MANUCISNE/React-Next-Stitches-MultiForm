@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   CardBox,
@@ -12,36 +12,42 @@ import {
   SwitchThumb,
   WrapperContainerStep2,
 } from "../styles/pages/step2";
+import { useGlobalContext } from "../contexts/FormStepContext";
 
 export default function Step2(props: any) {
+  const { setPlansMonth, setPlansYearly } = useGlobalContext();
   const [selectedPlan, setSelectedPlan] = useState("");
 
-  const plansMonth = [
+  const plansForMonth = [
     {
       id: "plan1",
       title: "Arcade",
       price: "$9/mo",
+      value: 9,
       img: "/images/icon-arcade.svg",
     },
     {
       id: "plan2",
       title: "Advanced",
       price: "$12/mo",
+      value: 12,
       img: "/images/icon-advanced.svg",
     },
     {
       id: "plan3",
       title: "Pro",
       price: "$15/mo",
+      value: 15,
       img: "/images/icon-pro.svg",
     },
   ];
-  
-  const plansYearly = [
+
+  const plansForYearly = [
     {
       id: "plan1",
       title: "Arcade",
       price: "$90/yr",
+      value: 90,
       promotion: '2 months free',
       img: "/images/icon-arcade.svg",
     },
@@ -49,6 +55,7 @@ export default function Step2(props: any) {
       id: "plan2",
       title: "Advanced",
       price: "$120/yr",
+      value: 120,
       promotion: '2 months free',
       img: "/images/icon-advanced.svg",
     },
@@ -56,25 +63,32 @@ export default function Step2(props: any) {
       id: "plan3",
       title: "Pro",
       price: "$150/yr",
+      value: 150,
       promotion: '2 months free',
       img: "/images/icon-pro.svg",
     },
   ];
-
+  
   const [isChecked, setIsChecked] = useState(false);
 
   const handleSwitchChange = () => {
     setIsChecked(!isChecked);
-    localStorage.setItem('package', JSON.stringify({package: isChecked}))
+    localStorage.setItem('package', JSON.stringify({package: !isChecked}))
   };
+  
+  useEffect(() => {
+    localStorage.setItem('package', JSON.stringify({package: isChecked}))
+  },[])
 
   const handleSelectPlan = (planId: string) => {
     if(isChecked) {
-      let plan = plansYearly.filter(plan => plan.id == planId);
-      props.handleNext(plan[0])
+      let plan = plansForYearly.filter(plan => plan.id == planId);
+      // props.handleNext(plan[0])
+      setPlansYearly(plan[0])
     } else {
-      let plan = plansMonth.filter(plan => plan.id == planId);
-      props.handleNext(plan[0])
+      let plan = plansForMonth.filter(plan => plan.id == planId);
+      // props.handleNext(plan[0])
+      setPlansMonth(plan[0])
     }
     setSelectedPlan(planId)
   }
@@ -87,7 +101,7 @@ export default function Step2(props: any) {
         {
           !isChecked ? (
             <CardBox>
-              {plansMonth.map((plan) => (
+              {plansForMonth.map((plan) => (
                 <CardSelectPlan
                   role="listitem"
                   key={plan.id}
@@ -104,7 +118,7 @@ export default function Step2(props: any) {
             </CardBox>
           ) : (
             <CardBox>
-              {plansYearly.map((plan) => (
+              {plansForYearly.map((plan) => (
                 <CardSelectPlan
                   role="listitem"
                   key={plan.id}

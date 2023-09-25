@@ -2,15 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { CheckIcon } from '@radix-ui/react-icons';
 import { Checkbox } from '@radix-ui/react-checkbox';
 import { AddonsOptions, Flex, FormDiv, Label, WrapperContainerStep3 } from '../styles/pages/step3';
+import { useGlobalContext } from '../contexts/FormStepContext';
 
 export default function Step3(props: any) {
-  const [packageStorage, setPackageStorage] = useState(true)
+  const { setAdditional } = useGlobalContext();
+  const [packageStorage, setPackageStorage] = useState(false)
   const [addonMonth, setAddonMonth] = useState([
     {
       id: '1',
       name: "Online service",
       description: "Acess to multiplayer games",
       price: "$1/mo",
+      value: 1,
       checked: false
     },
     {
@@ -18,6 +21,7 @@ export default function Step3(props: any) {
       name: "Advanced",
       description: "Extra 1TB of could save your game",
       price: "$2/mo",
+      value: 2,
       checked: false
     },
     {
@@ -25,15 +29,18 @@ export default function Step3(props: any) {
       name: "Pro",
       description: "Custom theme on your profile",
       price: "$2/mo",
+      value: 2,
       checked: false
     }
   ])
+
   const [addonYearly, setAddonYearly] = useState([
     {
       id: '1',
       name: "Online service",
       description: "Acess to multiplayer games",
       price: "$10/yr",
+      value: 10,
       checked: false
     },
     {
@@ -41,6 +48,7 @@ export default function Step3(props: any) {
       name: "Advanced",
       description: "Extra 1TB of could save your game",
       price: "$20/yr",
+      value: 20,
       checked: false
     },
     {
@@ -48,12 +56,13 @@ export default function Step3(props: any) {
       name: "Pro",
       description: "Custom theme on your profile",
       price: "$20/yr",
+      value: 20,
       checked: false
     }
   ])
-  
+
   const handleCheckboxChange = (id: any) => {
-    if(packageStorage) {
+    if(!packageStorage) {
       const updatedCheckboxes = addonMonth.map((checkbox) =>
         checkbox.id === id
           ? { ...checkbox, checked: !checkbox.checked }
@@ -71,11 +80,13 @@ export default function Step3(props: any) {
   };
   
   useEffect(() => {
-    props.handleNext({ addonMonth }); // Se o estado addonMonth mudar, isso será executado
+    setAdditional(addonMonth)
+    props.handleNext({ addonMonth });
   }, [addonMonth]);
   
   useEffect(() => {
-    props.handleNext({ addonYearly }); // Se o estado addonYearly mudar, isso será executado
+    setAdditional(addonYearly)
+    props.handleNext({ addonYearly });
   }, [addonYearly]);
 
   useEffect(() => {
@@ -93,7 +104,7 @@ export default function Step3(props: any) {
         {
           packageStorage ? (
             <AddonsOptions>
-              {addonMonth.map((addon) => (
+              {addonYearly.map((addon) => (
                 // eslint-disable-next-line react/jsx-key
                 <Flex css={{ alignItems: 'center' }}>
                   <Checkbox
@@ -127,7 +138,7 @@ export default function Step3(props: any) {
             </AddonsOptions>
           ) : (
             <AddonsOptions>
-              {addonYearly.map((addon) => (
+              {addonMonth.map((addon) => (
                 // eslint-disable-next-line react/jsx-key
                 <Flex css={{ alignItems: 'center' }}>
                   <Checkbox
