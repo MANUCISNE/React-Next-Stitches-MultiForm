@@ -142,7 +142,7 @@ export default function Step2(props: any) {
             <Label htmlFor="monthly" css={{ paddingRight: 15, color: '$gray900', fontWeight: 'bold' }}>
               Monthly
             </Label>
-            <SwitchRoot data-testid="airplane-mode" onClick={handleSwitchChange}>
+            <SwitchRoot id="airplane-mode" onClick={handleSwitchChange}>
               <SwitchThumb />
             </SwitchRoot>
             <Label htmlFor="yearly" css={{ paddingLeft: 15, color: '$gray900', fontWeight: 'bold' }}>
