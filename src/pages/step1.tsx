@@ -81,6 +81,7 @@ export default function Step1() {
 
         <Label>Name</Label>
         <InputField
+          data-testid="InputNameField"
           styleError={styleError}
           type="text"
           placeholder="Username"
@@ -95,8 +96,9 @@ export default function Step1() {
           </ErrorMessageName>
         )}
 
-        <Label>Email Adress</Label>
+        <Label>Email Address</Label>
         <InputField
+          data-testid="InputNameField"
           styleError={styleError}
           type="text"
           placeholder="Email"
@@ -113,6 +115,7 @@ export default function Step1() {
 
         <Label>Phone Number</Label>
         <InputField
+          data-testid="InputNameField"
           styleError={styleError}
           type="text"
           placeholder="(DD)999999999"
@@ -132,4 +135,3 @@ export default function Step1() {
     </WrapperContainerStep1>
   );
 }
-export{handleInputsChanges}

@@ -1,23 +1,65 @@
-import { handleInputsChanges } from "@/src/styles/pages/step1";
+import React from 'react';
+import Step1 from "@/src/pages/step1";
+import { render, screen } from "@testing-library/react";
+import '@testing-library/jest-dom'
 
-describe("handleInputsChanges", () => {
-  it("should update the form data when an input is changed", () => {
-    const formData = {
-      username: "",
-      email: "",
-      phoneNumber: "",
-    };
+describe("Step1 component", () => {
+  it("should render the form title and description", () => {
+    render(<Step1 />);
+    expect(screen.getByText("Personal info")).toBeInTheDocument();
+    expect(screen.getByText("Name")).toBeInTheDocument();
+    expect(screen.getByText("Email Address")).toBeInTheDocument();
+    expect(screen.getByText("Phone Number")).toBeInTheDocument();
+  });
 
-    handleInputsChanges({
-      username: "John Doe",
-      email: "john.doe@example.com",
-      phoneNumber: "(12) 3456-7890",
-    });
+  it("should render the name input field", () => {
+    render(<Step1 />);
 
-    expect(formData).toEqual({
-      username: "John Doe",
-      email: "john.doe@example.com",
-      phoneNumber: "(12) 3456-7890",
-    });
+    expect(screen.getByLabelText("Name")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Username")).toBeInTheDocument();
+  });
+
+  it("should render the email input field", () => {
+    render(<Step1 />);
+
+    expect(screen.getByLabelText("Email Adress")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Email")).toBeInTheDocument();
+  });
+
+  it("should render the phone number input field", () => {
+    render(<Step1 />);
+
+    expect(screen.getByLabelText("Phone Number")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("(DD)999999999")).toBeInTheDocument();
+  });
+
+  it("should validate the name input field", () => {
+    render(<Step1 />);
+
+    const nameInput = screen.getByPlaceholderText("Username");
+    (nameInput as HTMLInputElement).value = "123";
+    nameInput.blur();
+
+    expect(screen.getByText("O nome deve conter apenas letras.")).toBeInTheDocument();
+  });
+
+  it("should validate the email input field", () => {
+    render(<Step1 />);
+
+    const emailInput = screen.getByPlaceholderText("Email");
+    (emailInput as HTMLInputElement).value = "invalid@email";
+    emailInput.blur();
+
+    expect(screen.getByText("O email é inválido.")).toBeInTheDocument();
+  });
+
+  it("should validate the phone number input field", () => {
+    render(<Step1 />);
+
+    const phoneNumberInput = screen.getByPlaceholderText("(DD)999999999");
+    (phoneNumberInput as HTMLInputElement).value = "123123";
+    phoneNumberInput.blur();
+
+    expect(screen.getByText("O telefone é inválido.")).toBeInTheDocument();
   });
 });
