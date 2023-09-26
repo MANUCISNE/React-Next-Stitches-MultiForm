@@ -64,7 +64,7 @@ export default function Step4() {
 
           <Flex css={{ alignItems: 'center' }}>
             <PlanTypeContainer>
-              <Label css={{ paddingLeft: 15, color: '#0000ff' }} htmlFor="c1">
+              <Label css={{ paddingLeft: 15, color: '#0000ff' }} htmlFor="c1" data-testid="plan-type">
                 <h4>{data.title} {data.plan}</h4>
                 <p>Change</p>
               </Label>
