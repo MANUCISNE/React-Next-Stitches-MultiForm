@@ -17,21 +17,27 @@ export default function Step1() {
   });
 
   const [errors, setErrors] = useState({
-    name: '',
-    email: '',
-    phoneNumber: '',
+    name: "",
+    email: "",
+    phoneNumber: "",
   });
 
-  const [styleError, setStyleError] = useState(false)
-  
-  const validateForm = () => {
-    const nameRegex = /^[A-Za-z 0-9]+$/
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    const phoneNumberRegex = /^(\([0-9]{2}\) )?[0-9]{9}$/
+  const [styleError, setStyleError] = useState(false);
 
-    const nameError = nameRegex.test(formData.username) ? '' : 'O nome deve conter apenas letras.';
-    const emailError = emailRegex.test(formData.email) ? '' : 'O email é inválido.';
-    const phoneNumberError = phoneNumberRegex.test(formData.phoneNumber) ? '' : 'O telefone é inválido.';
+  const validateForm = () => {
+    const nameRegex = /^[A-Za-z 0-9]+$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    const phoneNumberRegex = /^(\([0-9]{2}\) )?[0-9]{9}$/;
+
+    const nameError = nameRegex.test(formData.username)
+      ? ""
+      : "O nome deve conter apenas letras.";
+    const emailError = emailRegex.test(formData.email)
+      ? ""
+      : "O email é inválido.";
+    const phoneNumberError = phoneNumberRegex.test(formData.phoneNumber)
+      ? ""
+      : "O telefone é inválido.";
 
     setErrors({
       name: nameError,
@@ -39,13 +45,17 @@ export default function Step1() {
       phoneNumber: phoneNumberError,
     });
 
-    if (formData.username === '' || formData.email === '' || formData.phoneNumber === '') {
+    if (
+      formData.username === "" ||
+      formData.email === "" ||
+      formData.phoneNumber === ""
+    ) {
       setErrors({
         name: nameError,
         email: emailError,
         phoneNumber: phoneNumberError,
       });
-  
+
       return true;
     }
 
@@ -54,14 +64,14 @@ export default function Step1() {
     }
 
     return true;
-  }
+  };
 
-  const handleInputsChanges = (fieldName: string, value: string) => { 
+  const handleInputsChanges = (fieldName: string, value: string) => {
     setFormData({
-      ...formData, 
+      ...formData,
       [fieldName]: value,
-    })
-  }
+    });
+  };
 
   return (
     <WrapperContainerStep1>
@@ -79,7 +89,11 @@ export default function Step1() {
           onBlur={validateForm}
           required
         />
-        {errors.name && <ErrorMessageName style={{ color: 'red' }}>This field is required</ErrorMessageName>}
+        {errors.name && (
+          <ErrorMessageName style={{ color: "red" }}>
+            This field is required
+          </ErrorMessageName>
+        )}
 
         <Label>Email Adress</Label>
         <InputField
@@ -91,8 +105,11 @@ export default function Step1() {
           onBlur={validateForm}
           required
         />
-        {errors.email && <ErrorMessageEmail style={{ color: 'red' }}>This field is required
-          </ErrorMessageEmail>}
+        {errors.email && (
+          <ErrorMessageEmail style={{ color: "red" }}>
+            This field is required
+          </ErrorMessageEmail>
+        )}
 
         <Label>Phone Number</Label>
         <InputField
@@ -104,9 +121,15 @@ export default function Step1() {
           onBlur={validateForm}
           required
         />
-        {errors.phoneNumber && <ErrorMessagePhone style={{color: 'red', fontWeight: 'bold', position: 'absolute'}}>This field is required
-          </ErrorMessagePhone>}
+        {errors.phoneNumber && (
+          <ErrorMessagePhone
+            style={{ color: "red", fontWeight: "bold", position: "absolute" }}
+          >
+            This field is required
+          </ErrorMessagePhone>
+        )}
       </FormDiv>
     </WrapperContainerStep1>
   );
-};
+}
+export{handleInputsChanges}
