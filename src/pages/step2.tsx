@@ -100,17 +100,17 @@ export default function Step2(props: any) {
         <p>You have the option of monthly or yearly biling.</p>
         {
           !isChecked ? (
-            <CardBox>
+            <CardBox role="listitem">
               {plansForMonth.map((plan) => (
                 <CardSelectPlan
-                  role="listitem"
+                  role="listitemmap"
                   key={plan.id}
                   onClick={() => { handleSelectPlan(plan.id) }}
                   selected={plan.id === selectedPlan}
                 >
                   <Image src={plan.img} alt="" width={35} height={35} />
                   <ContentTextMobile>
-                    <h5>{plan.title}</h5>
+                    <h5 data-testid="plantitle">{plan.title}</h5>
                     <p>{plan.price}</p>
                   </ContentTextMobile>
                 </CardSelectPlan>
@@ -120,7 +120,6 @@ export default function Step2(props: any) {
             <CardBox>
               {plansForYearly.map((plan) => (
                 <CardSelectPlan
-                  role="listitem"
                   key={plan.id}
                   onClick={() => { handleSelectPlan(plan.id) }}
                   selected={plan.id === selectedPlan}

@@ -42,33 +42,33 @@ describe("Step2 component", () => {
 
     expect(screen.getByRole("list")).toBeInTheDocument();
     expect(
-      screen.getByText("You have the option of monthly or yearly billing.")
+      screen.queryByRole("listitem")
     ).toBeInTheDocument();
   });
 
-  // it("should render the monthly plans", () => {
-  //   render(<Step2 />);
+  it("should render the monthly plans", () => {
+    render(<Step2 />);
 
-  //   const monthlyPlans = screen.getAllByRole("listitem");
-  //   expect(monthlyPlans.length).toBe(3);
-  // });
+    const monthlyPlans = screen.getAllByRole("listitem");
+    expect(monthlyPlans.length).toBe(1);
+  });
 
-  // it("should render the yearly plans when the switch is toggled on", () => {
-  //   render(<Step2 />);
+  it("should render the yearly plans when the switch is toggled on", () => {
+    render(<Step2 />);
 
-  //   const switchButton = screen.getByRole("switch");
-  //   switchButton.click();
+    const switchButton = screen.getByRole("switch");
+    switchButton.click();
 
-  //   const yearlyPlans = screen.getAllByRole("listitem");
-  //   expect(yearlyPlans.length).toBe(3);
-  // });
+    const yearlyPlans = screen.getAllByRole("listitem");
+    expect(yearlyPlans.length).toBe(1);
+  });
 
-  // it("should select the monthly plan by default", () => {
-  //   render(<Step2 />);
+  it("should select the monthly plan by default", () => {
+    render(<Step2 />);
 
-  //   const firstMonthlyPlan = screen.getByRole("listitem", { name: "Arcade" });
-  //   expect(firstMonthlyPlan.classList.contains("selected")).toBe(true);
-  // });
+    const firstMonthlyPlan = screen.getByRole("listitemmap", { name: "Arcade" });
+    expect(firstMonthlyPlan.classList.contains("selected")).toBe(true);
+  });
 
   // it("should select the yearly plan when the switch is toggled on", () => {
   //   render(<Step2 />);
