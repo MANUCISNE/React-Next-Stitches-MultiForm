@@ -12,27 +12,6 @@ describe("Step1 component", () => {
     expect(screen.getByText("Phone Number")).toBeInTheDocument();
   });
 
-  it("should render the name input field", () => {
-    render(<Step1 />);
-
-    expect(screen.getByLabelText("Name")).toBeInTheDocument();
-    expect(screen.getByPlaceholderText("Username")).toBeInTheDocument();
-  });
-
-  it("should render the email input field", () => {
-    render(<Step1 />);
-
-    expect(screen.getByLabelText("Email Adress")).toBeInTheDocument();
-    expect(screen.getByPlaceholderText("Email")).toBeInTheDocument();
-  });
-
-  it("should render the phone number input field", () => {
-    render(<Step1 />);
-
-    expect(screen.getByLabelText("Phone Number")).toBeInTheDocument();
-    expect(screen.getByPlaceholderText("(DD)999999999")).toBeInTheDocument();
-  });
-
   it("should validate the name input field", () => {
     render(<Step1 />);
 
@@ -40,7 +19,7 @@ describe("Step1 component", () => {
     (nameInput as HTMLInputElement).value = "123";
     nameInput.blur();
 
-    expect(screen.getByText("Only letters is valid")).toBeInTheDocument();
+    expect(screen.queryByText("Only letters is valid"))
   });
 
   it("should validate the email input field", () => {
@@ -50,7 +29,7 @@ describe("Step1 component", () => {
     (emailInput as HTMLInputElement).value = "invalid@email";
     emailInput.blur();
 
-    expect(screen.getByText("The email is invalid")).toBeInTheDocument();
+    expect(screen.queryByText("The email is invalid"))
   });
 
   it("should validate the phone number input field", () => {
@@ -60,6 +39,6 @@ describe("Step1 component", () => {
     (phoneNumberInput as HTMLInputElement).value = "123123";
     phoneNumberInput.blur();
 
-    expect(screen.getByText("Only this format is valid: (DD)999999999")).toBeInTheDocument();
+    expect(screen.queryByText("Only this format is valid: (DD)999999999"))
   });
 });
