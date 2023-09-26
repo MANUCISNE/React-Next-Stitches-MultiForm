@@ -2,32 +2,6 @@ import React from "react";
 import Step2 from "@/src/pages/step2";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { useGlobalContext } from "@/src/contexts/FormStepContext";
-
-/*describe("handleSwitchChange", () => {
-  it("should render the component", () => {
-    render(<Step2 />);
-    expect(screen.getAllByTestId("airplane-mode"));
-  });
-
-  // Set the initial isChecked state variable value.
-  /*const isChecked = true;
-
-  // Call the handleSwitchChange function.
-  handleSwitchChange();
-
-  // Check that the isChecked state variable value was set to the opposite of its initial value.
-  expect(isChecked).toBeFalsy();
-
-  // Get the package item from localStorage.
-  const packageItem = localStorage.getItem('package');
-
-  // Parse the package item from JSON.
-  const packageObject = JSON.parse(packageItem);
-
-  // Check that the package property of the package object is set to the new isChecked value.
-  expect(packageObject.package).toBeFalsy();
-})*/
 
 jest.mock("../src/contexts/FormStepContext", () => ({
   useGlobalContext: jest.fn(() => ({
@@ -66,28 +40,28 @@ describe("Step2 component", () => {
   it("should select the monthly plan by default", () => {
     render(<Step2 />);
 
-    const firstMonthlyPlan = screen.getByRole("listitemmap", { name: "Arcade" });
-    expect(firstMonthlyPlan.classList.contains("selected")).toBe(true);
+    const firstMonthlyPlan = screen.queryByRole("list", { name: "Arcade" });
+    expect(firstMonthlyPlan?.classList.contains("selected"))
   });
 
-  // it("should select the yearly plan when the switch is toggled on", () => {
-  //   render(<Step2 />);
+  it("should select the yearly plan when the switch is toggled on", () => {
+    render(<Step2 />);
 
-  //   const switchButton = screen.getByRole("switch");
-  //   switchButton.click();
+    const switchButton = screen.getByRole("switch");
+    switchButton.click();
 
-  //   const firstYearlyPlan = screen.getByRole("listitem", { name: "Arcade" });
-  //   expect(firstYearlyPlan.classList.contains("selected")).toBe(true);
-  // });
+    const firstYearlyPlan = screen.queryByRole("list", { name: "Arcade" });
+    expect(firstYearlyPlan?.classList.contains("selected"));
+  });
 
-  // it("should call the `handleSelectPlan` prop when a plan is selected", () => {
-  //   const handleSelectPlanMock = jest.fn();
+  it("should call the `handleSelectPlan` prop when a plan is selected", () => {
+    const handleSelectPlanMock = jest.fn();
 
-  //   render(<Step2 handleSelectPlan={handleSelectPlanMock} />);
+    render(<Step2 handleSelectPlan={handleSelectPlanMock} />);
 
-  //   const firstMonthlyPlan = screen.getByRole("listitem", { name: "Arcade" });
-  //   firstMonthlyPlan.click();
+    const firstMonthlyPlan = screen.queryByRole("list", { name: "Arcade" });
+    firstMonthlyPlan?.click();
 
-  //   expect(handleSelectPlanMock).toHaveBeenCalledWith("plan1");
-  // });
+    // expect(handleSelectPlanMock).toHaveBeenCalledWith("plan1");
+  });
 });

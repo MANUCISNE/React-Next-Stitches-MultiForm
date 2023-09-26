@@ -97,7 +97,7 @@ export default function Step3(props: any) {
 
   return (
     <WrapperContainerStep3>
-      <FormDiv>
+      <FormDiv role='listadd'>
         <h2>Pick add-ons</h2>
         <p>Add-ons help enhance your gaming experience.</p>
         
