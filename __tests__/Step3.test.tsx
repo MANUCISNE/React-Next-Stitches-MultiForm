@@ -3,6 +3,12 @@ import { render, screen } from "@testing-library/react";
 import Step3 from "../src/pages/step3";
 import '@testing-library/jest-dom'
 
+jest.mock("../src/contexts/FormStepContext", () => ({
+  useGlobalContext: jest.fn(() => ({
+    setAdditional: jest.fn(),
+  })),
+}));
+
 describe("Step3 component", () => {
   it("should render the three add-ons", () => {
     render(<Step3 />);
