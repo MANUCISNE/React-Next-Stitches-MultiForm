@@ -1,6 +1,7 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Step3 from "../src/pages/step3";
+import '@testing-library/jest-dom'
 
 describe("Step3 component", () => {
   it("should render the three add-ons", () => {

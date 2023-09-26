@@ -40,7 +40,7 @@ describe("Step1 component", () => {
     (nameInput as HTMLInputElement).value = "123";
     nameInput.blur();
 
-    expect(screen.getByText("O nome deve conter apenas letras.")).toBeInTheDocument();
+    expect(screen.getByText("Only letters is valid")).toBeInTheDocument();
   });
 
   it("should validate the email input field", () => {
@@ -50,7 +50,7 @@ describe("Step1 component", () => {
     (emailInput as HTMLInputElement).value = "invalid@email";
     emailInput.blur();
 
-    expect(screen.getByText("O email é inválido.")).toBeInTheDocument();
+    expect(screen.getByText("The email is invalid")).toBeInTheDocument();
   });
 
   it("should validate the phone number input field", () => {
@@ -60,6 +60,6 @@ describe("Step1 component", () => {
     (phoneNumberInput as HTMLInputElement).value = "123123";
     phoneNumberInput.blur();
 
-    expect(screen.getByText("O telefone é inválido.")).toBeInTheDocument();
+    expect(screen.getByText("Only this format is valid: (DD)999999999")).toBeInTheDocument();
   });
 });

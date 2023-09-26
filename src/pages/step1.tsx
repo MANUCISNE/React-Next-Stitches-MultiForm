@@ -92,7 +92,7 @@ export default function Step1() {
         />
         {errors.name && (
           <ErrorMessageName style={{ color: "red" }}>
-            This field is required
+            Only letters is valid
           </ErrorMessageName>
         )}
 
@@ -109,7 +109,7 @@ export default function Step1() {
         />
         {errors.email && (
           <ErrorMessageEmail style={{ color: "red" }}>
-            This field is required
+            The email is invalid
           </ErrorMessageEmail>
         )}
 
@@ -128,7 +128,7 @@ export default function Step1() {
           <ErrorMessagePhone
             style={{ color: "red", fontWeight: "bold", position: "absolute" }}
           >
-            This field is required
+            Only this format is valid: (DD)999999999
           </ErrorMessagePhone>
         )}
       </FormDiv>
