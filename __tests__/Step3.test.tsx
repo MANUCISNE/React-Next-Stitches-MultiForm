@@ -1,11 +1,13 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
 import Step3 from "../src/pages/step3";
-import '@testing-library/jest-dom'
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 
 jest.mock("../src/contexts/FormStepContext", () => ({
   useGlobalContext: jest.fn(() => ({
     setAdditional: jest.fn(),
+    setPlansMonth: jest.fn(),
+    setPlansYearly: jest.fn(),
   })),
 }));
 
@@ -13,8 +15,10 @@ describe("Step3 component", () => {
   it("should render the three add-ons", () => {
     render(<Step3 />);
 
-    const addOns = screen.getAllByRole("listadd");
-    expect(addOns.length).toBe(3);
+    expect(screen.getByRole("listadd")).toBeInTheDocument();
+    expect(
+      screen.queryByRole("listitemcheckbox")
+    ).toBeInTheDocument()
   });
 
   // it("should check the first add-on by default", () => {

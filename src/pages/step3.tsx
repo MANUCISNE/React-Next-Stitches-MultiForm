@@ -97,13 +97,13 @@ export default function Step3(props: any) {
 
   return (
     <WrapperContainerStep3>
-      <FormDiv>
+      <FormDiv role='listadd'>
         <h2>Pick add-ons</h2>
         <p>Add-ons help enhance your gaming experience.</p>
         
         {
           packageStorage ? (
-            <AddonsOptions role='checkbox'>
+            <AddonsOptions role='listitemcheckbox'>
               {addonYearly.map((addon) => (
                 // eslint-disable-next-line react/jsx-key
                 <Flex css={{ alignItems: 'center' }}>

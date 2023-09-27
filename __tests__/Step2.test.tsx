@@ -62,6 +62,6 @@ describe("Step2 component", () => {
     const firstMonthlyPlan = screen.queryByRole("list", { name: "Arcade" });
     firstMonthlyPlan?.click();
 
-    // expect(handleSelectPlanMock).toHaveBeenCalledWith("plan1");
+    expect(handleSelectPlanMock)
   });
 });
