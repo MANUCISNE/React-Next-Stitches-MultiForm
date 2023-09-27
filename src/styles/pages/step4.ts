@@ -7,7 +7,7 @@ export const WrapperContainerStep4 = styled('div', {
   marginTop: '1rem'
 });
 
-export const FormDiv = styled('div', {
+export const FormDivStep4 = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   paddingLeft: '1rem',
@@ -48,7 +48,7 @@ export const DivTeste = styled('div', {
   },
 })
 
-export const Label = styled('label', {
+export const TextResumStep4 = styled('label', {
   color: 'white',
   fontSize: 15,
   lineHeight: 1,
@@ -57,7 +57,7 @@ export const Label = styled('label', {
   justifyContent: 'space-between',
 });
 
-export const Flex = styled('div', {
+export const FirstBoxResumStep4 = styled('div', {
   display: 'flex',
   padding: '1rem',
   width: '100%',

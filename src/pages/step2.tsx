@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
+  BoxSwitch,
   CardBox,
   CardSelectPlan,
   ContentTextMobile,
-  Flex,
-  FormDiv,
-  Label,
-  SwitchBox,
+  FormDivListCheckBox,
+  TextBoxSwitch,
+  SwitchContainer,
   SwitchRoot,
   SwitchThumb,
   WrapperContainerStep2,
@@ -95,7 +95,7 @@ export default function Step2(props: any) {
   
   return (
     <WrapperContainerStep2>
-      <FormDiv role="list">
+      <FormDivListCheckBox role="list">
         <h2>Select your plan</h2>
         <p>You have the option of monthly or yearly biling.</p>
         {
@@ -136,21 +136,21 @@ export default function Step2(props: any) {
           )
         }
 
-        <SwitchBox>
-          <Flex css={{ alignItems: 'center', color: '$marineBlue' }}>
-            <Label htmlFor="monthly" css={{ paddingRight: 15, color: '$gray900', fontWeight: 'bold' }}>
+        <SwitchContainer>
+          <BoxSwitch css={{ alignItems: 'center', color: '$marineBlue' }}>
+            <TextBoxSwitch htmlFor="monthly" css={{ paddingRight: 15, color: '$gray900', fontWeight: 'bold' }}>
               Monthly
-            </Label>
+            </TextBoxSwitch>
             <SwitchRoot id="airplane-mode" onClick={handleSwitchChange}>
               <SwitchThumb />
             </SwitchRoot>
-            <Label htmlFor="yearly" css={{ paddingLeft: 15, color: '$gray900', fontWeight: 'bold' }}>
+            <TextBoxSwitch htmlFor="yearly" css={{ paddingLeft: 15, color: '$gray900', fontWeight: 'bold' }}>
               Yearly
-            </Label>
-          </Flex>
-        </SwitchBox>
+            </TextBoxSwitch>
+          </BoxSwitch>
+        </SwitchContainer>
 
-      </FormDiv>
+      </FormDivListCheckBox>
     </WrapperContainerStep2>
   );
 };

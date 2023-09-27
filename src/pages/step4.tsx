@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FormDiv, WrapperContainerStep4, Label, Flex, TotalPlansCalculate, ConfirmButton, PlanTypeContainer, AdditionalContainer } from '../styles/pages/step4';
+import { WrapperContainerStep4, TotalPlansCalculate, ConfirmButton, PlanTypeContainer, AdditionalContainer, FormDivStep4, TextResumStep4, FirstBoxResumStep4 } from '../styles/pages/step4';
 import FinalPage from '../components/finalPage';
 import { useGlobalContext } from '../contexts/FormStepContext';
 
@@ -58,38 +58,38 @@ export default function Step4() {
   return (
     <WrapperContainerStep4>
       {isStep4Visible && (
-        <FormDiv>
+        <FormDivStep4>
           <h2>Finishing up</h2>
           <p>Double-check everything looks OK before confirming.</p>
 
-          <Flex css={{ alignItems: 'center' }}>
+          <FirstBoxResumStep4 css={{ alignItems: 'center' }}>
             <PlanTypeContainer>
-              <Label css={{ paddingLeft: 15, color: '#0000ff' }} htmlFor="c1" data-testid="plan-type">
+              <TextResumStep4 css={{ paddingLeft: 15, color: '#0000ff' }} htmlFor="c1" data-testid="plan-type">
                 <h4>{data.title} {data.plan}</h4>
                 <p>Change</p>
-              </Label>
+              </TextResumStep4>
               <p style={{ color: '#0000ff' }}>{data.price}</p>
             </PlanTypeContainer>
 
             {selectedFiltered?.map((item, index) => (
               <AdditionalContainer key={index}>
-                <Label css={{ paddingLeft: 15, color: '#c4c4cc' }} htmlFor="c1">
+                <TextResumStep4 css={{ paddingLeft: 15, color: '#c4c4cc' }} htmlFor="c1">
                   <p>{item.name}</p>
-                </Label>
-                <Label>
+                </TextResumStep4>
+                <TextResumStep4>
                   <p style={{ color: '#0000ff' }}>{item.price}</p>
-                </Label>
+                </TextResumStep4>
               </AdditionalContainer>
             ))}
-          </Flex>
+          </FirstBoxResumStep4>
 
           <TotalPlansCalculate css={{ alignItems: 'center' }}>
-            <Label css={{ paddingLeft: 15, color: '#ccc' }} htmlFor="c1">
+            <TextResumStep4 css={{ paddingLeft: 15, color: '#ccc' }} htmlFor="c1">
               <p>Total {data.plan}</p>
-            </Label>
+            </TextResumStep4>
             <p style={{ color: '#0000ff' }}>${soma}/{typePlan ? 'yr' : 'mo'}</p>
           </TotalPlansCalculate>
-        </FormDiv>
+        </FormDivStep4>
       )}
 
       {confirmButtonVisible && <ConfirmButton onClick={handleClick}>Confirm</ConfirmButton>}

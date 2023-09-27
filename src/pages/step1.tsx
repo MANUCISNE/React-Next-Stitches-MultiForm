@@ -3,10 +3,10 @@ import {
   ErrorMessageEmail,
   ErrorMessageName,
   ErrorMessagePhone,
-  FormDiv,
+  FormDivStep1,
   InputField,
   Label,
-  WrapperContainerStep1,
+  BoxContainerStep1,
 } from "../styles/pages/step1";
 
 export default function Step1() {
@@ -74,8 +74,8 @@ export default function Step1() {
   };
 
   return (
-    <WrapperContainerStep1>
-      <FormDiv>
+    <BoxContainerStep1>
+      <FormDivStep1>
         <h2>Personal info</h2>
         <p>Please provide your name, email address, and phone number</p>
 
@@ -128,10 +128,10 @@ export default function Step1() {
           <ErrorMessagePhone
             style={{ color: "red", fontWeight: "bold", position: "absolute" }}
           >
-            Only this format is valid: (DD)999999999
+            Valid Format: (DD)999999999
           </ErrorMessagePhone>
         )}
-      </FormDiv>
-    </WrapperContainerStep1>
+      </FormDivStep1>
+    </BoxContainerStep1>
   );
 }

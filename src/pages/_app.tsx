@@ -6,14 +6,14 @@ import { AppProps } from 'next/app';
 
 import {
   BoxWrapper,
-  ButtonContainer,
+  ButtonContainerApp,
   ButtonDivTeste,
   ButtonNext,
-  CenterWrapper,
-  Container,
+  ProgressBarBoxApp,
+  ContainerAppBox,
   ContainerImageBox,
   GoBackButton,
-  Picture,
+  PictureBackground,
   TextDivProgressBar
 } from '../styles/pages/app'
 
@@ -91,12 +91,12 @@ export default function App({ Component, pageProps }: AppProps) {
       {screenWidth <= 375 && (
         <Image src="/images/bg-sidebar-mobile.svg" alt="Imagem 2" width={375} height={172} style={{marginBottom: '55rem' }}/>
         )}
-          <Container>
-            <Picture>
+          <ContainerAppBox>
+            <PictureBackground>
               <Image src="/images/bg-sidebar-desktop.svg" alt="Imagem 1" width={210} height={420} />
-            </Picture>
+            </PictureBackground>
 
-          <CenterWrapper>
+          <ProgressBarBoxApp>
             {Steps.map((stepItem) => (
               <>
               <Step
@@ -111,9 +111,9 @@ export default function App({ Component, pageProps }: AppProps) {
               </TextDivProgressBar>
               </>
             ))}
-            </CenterWrapper>
+            </ProgressBarBoxApp>
           
-          <ButtonContainer>
+          <ButtonContainerApp>
             <BoxWrapper>{getCompStep()}</BoxWrapper>
             <ButtonDivTeste>
               {step !== 1 && (
@@ -133,8 +133,8 @@ export default function App({ Component, pageProps }: AppProps) {
               )}
                 
             </ButtonDivTeste>
-          </ButtonContainer>
-        </Container>
+          </ButtonContainerApp>
+        </ContainerAppBox>
       </ContainerImageBox>
     </GlobalContextProvider>
   )

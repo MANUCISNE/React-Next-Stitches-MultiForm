@@ -5,7 +5,7 @@ export const ContainerImageBox = styled('div', {
   flexDirection: 'column',
 })
 
-export const Container = styled('div', {
+export const ContainerAppBox = styled('div', {
   margin: '14rem auto',
   display: 'flex',
   alignItems: 'center',
@@ -26,13 +26,13 @@ export const Container = styled('div', {
   },
 })
 
-export const Picture = styled('picture', {
+export const PictureBackground = styled('picture', {
   '@media (max-width: 375px)': {
     display: 'none',
   },
 })
 
-export const ButtonContainer = styled("div", {
+export const ButtonContainerApp = styled("div", {
   display: "flex",
   flexDirection: "column",
   width: "100%",
@@ -60,7 +60,7 @@ export const Boxtest = styled("div", {
   width: '5rem',
 });
 
-export const CenterWrapper = styled("div", {
+export const ProgressBarBoxApp = styled("div", {
   width: "12rem",
   position: 'absolute',
   display: 'flex',
@@ -146,7 +146,7 @@ export const GoBackButton = styled('button', {
 
   '@media (max-width: 375px)': {
     position: 'absolute',
-    marginLeft: '-3rem',
+    marginLeft: '0rem',
     marginTop: '3.5rem',
     padding: '.8rem',
   },

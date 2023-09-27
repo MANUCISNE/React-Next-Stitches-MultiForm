@@ -1,10 +1,10 @@
 import { styled } from ".."
 
-export const WrapperContainerStep1 = styled('div', {
+export const BoxContainerStep1 = styled('div', {
   
 });
 
-export const FormDiv = styled('div', {
+export const FormDivStep1 = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   paddingLeft: '1rem',
@@ -90,14 +90,14 @@ export const ErrorMessagePhone = styled('p', {
   fontWeight: 'bold',
   marginTop: '14.5rem',
   position: 'absolute',
-  marginLeft: '15rem',
-  width: '8rem',
+  marginLeft: '11.5rem',
+  width: '13rem',
 
   '@media (max-width: 375px)': {
     marginTop: '15.3rem',
     position: 'absolute',
-    marginLeft: '6rem',
-    width: '10rem',
+    marginLeft: '2.5rem',
+    width: '14rem',
     fontSize: '.78rem'
   },
 });

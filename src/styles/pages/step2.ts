@@ -8,7 +8,7 @@ export const WrapperContainerStep2 = styled('div', {
   alignItems: 'center',
 });
 
-export const FormDiv = styled('div', {
+export const FormDivListCheckBox = styled('div', {
   width: '100%',
 
   p: {
@@ -92,7 +92,7 @@ export const ContentTextMobile = styled('div', {
   },
 });
 
-export const SwitchBox = styled('div', {
+export const SwitchContainer = styled('div', {
   backgroundColor: '$magnolia',
   padding: '0.8rem',
   display: 'flex',
@@ -130,9 +130,9 @@ export const SwitchThumb = styled(Switch.Thumb, {
   '&[data-state="checked"]': { transform: 'translateX(19px)' },
 });
 
-export const Flex = styled('div', { display: 'flex' });
+export const BoxSwitch = styled('div', { display: 'flex' });
 
-export const Label = styled('label', {
+export const TextBoxSwitch = styled('label', {
   color: 'white',
   fontSize: 15,
   lineHeight: 1,
