@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Step3 component renders monthly add-ons if package is false 1`] = `
+<div>
+  <div
+    class="c-jKOUQW"
+  >
+    <div
+      class="c-clUunX"
+      role="listadd"
+    >
+      <h2>
+        Pick add-ons
+      </h2>
+      <p>
+        Add-ons help enhance your gaming experience.
+      </p>
+      <div
+        class="c-gCPNIP"
+        role="listitemcheckboxMO"
+      >
+        <div
+          class="c-eprAyq c-eprAyq-ijroWjL-css"
+        >
+          <button
+            aria-checked="false"
+            data-state="unchecked"
+            id="1"
+            role="checkbox"
+            type="button"
+            value="on"
+          >
+            <div
+              style="display: flex; align-items: center; width: 1rem; height: 1rem; background: white; border-radius: 4px; border: 1px solid #c4c4cc;"
+            />
+          </button>
+          <label
+            class="c-bwiYgr c-bwiYgr-iBJYEN-css"
+            for="c1"
+          >
+            <h4>
+              Online service
+            </h4>
+            <p>
+              Acess to multiplayer games
+            </p>
+          </label>
+          <p
+            style="color: rgb(0, 0, 255);"
+          >
+            $1/mo
+          </p>
+        </div>
+        <div
+          class="c-eprAyq c-eprAyq-ijroWjL-css"
+        >
+          <button
+            aria-checked="false"
+            data-state="unchecked"
+            id="2"
+            role="checkbox"
+            type="button"
+            value="on"
+          >
+            <div
+              style="display: flex; align-items: center; width: 1rem; height: 1rem; background: white; border-radius: 4px; border: 1px solid #c4c4cc;"
+            />
+          </button>
+          <label
+            class="c-bwiYgr c-bwiYgr-iBJYEN-css"
+            for="c1"
+          >
+            <h4>
+              Advanced
+            </h4>
+            <p>
+              Extra 1TB of could save your game
+            </p>
+          </label>
+          <p
+            style="color: rgb(0, 0, 255);"
+          >
+            $2/mo
+          </p>
+        </div>
+        <div
+          class="c-eprAyq c-eprAyq-ijroWjL-css"
+        >
+          <button
+            aria-checked="false"
+            data-state="unchecked"
+            id="3"
+            role="checkbox"
+            type="button"
+            value="on"
+          >
+            <div
+              style="display: flex; align-items: center; width: 1rem; height: 1rem; background: white; border-radius: 4px; border: 1px solid #c4c4cc;"
+            />
+          </button>
+          <label
+            class="c-bwiYgr c-bwiYgr-iBJYEN-css"
+            for="c1"
+          >
+            <h4>
+              Pro
+            </h4>
+            <p>
+              Custom theme on your profile
+            </p>
+          </label>
+          <p
+            style="color: rgb(0, 0, 255);"
+          >
+            $2/mo
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

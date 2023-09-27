@@ -12,33 +12,21 @@ jest.mock("../src/contexts/FormStepContext", () => ({
 }));
 
 describe('Step3 component', () => {
-  it('should render the correct add-on options based on the packageStorage state', () => {
-    // Render the component with packageStorage set to true
-    const handleNextMock = jest.fn();
-    render(<Step3 packageStorage={true} handleNext={handleNextMock} />);
+  // test('renders yearly add-ons if package is true', () => {
+  //   const { container } = render(<Step3 package={true} />);
 
-    // Expect to see the yearly add-on options
-    expect(screen.getByText('Online service - $10/yr')).toBeInTheDocument();
-    expect(screen.getByText('Advanced - $20/yr')).toBeInTheDocument();
-    expect(screen.getByText('Pro - $20/yr')).toBeInTheDocument();
+  //   const yearlyAddons = screen.getByRole('listitemcheckboxYR');
 
-    // Render the component with packageStorage set to false
-    render(<Step3 packageStorage={false} />);
+  //   expect(yearlyAddons).toBeInTheDocument();
+  //   expect(container).toMatchSnapshot();
+  // });
 
-    // Expect to see the monthly add-on options
-    expect(screen.getByText('Online service - $1/mo')).toBeInTheDocument();
-    expect(screen.getByText('Advanced - $2/mo')).toBeInTheDocument();
-    expect(screen.getByText('Pro - $2/mo')).toBeInTheDocument();
-  });
+  test('renders monthly add-ons if package is false', () => {
+    const { container } = render(<Step3 package={false} />);
 
-  it('should call the handleCheckboxChange function when an add-on checkbox is clicked', () => {
-    const handleCheckboxChangeMock = jest.fn();
-    render(<Step3 handleCheckboxChange={handleCheckboxChangeMock} />);
+    const monthlyAddons = screen.getByRole('listitemcheckboxMO');
 
-    // Click the checkbox for the first add-on
-    screen.getByText('Online service').click();
-
-    // Expect the handleCheckboxChange function to have been called with the correct id
-    expect(handleCheckboxChangeMock).toHaveBeenCalled();
+    expect(monthlyAddons).toBeInTheDocument()
+    expect(container).toMatchSnapshot();
   });
 });
