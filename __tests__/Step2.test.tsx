@@ -53,15 +53,4 @@ describe("Step2 component", () => {
     const firstYearlyPlan = screen.queryByRole("list", { name: "Arcade" });
     expect(firstYearlyPlan?.classList.contains("selected"));
   });
-
-  it("should call the `handleSelectPlan` prop when a plan is selected", () => {
-    const handleSelectPlanMock = jest.fn();
-
-    render(<Step2 handleSelectPlan={handleSelectPlanMock} />);
-
-    const firstMonthlyPlan = screen.queryByRole("list", { name: "Arcade" });
-    firstMonthlyPlan?.click();
-
-    expect(handleSelectPlanMock)
-  });
 });

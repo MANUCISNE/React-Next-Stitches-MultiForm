@@ -51,7 +51,7 @@ export default function Step4() {
   } else {
     valueSelected?.push(plansMonth.value)
   }
-  const soma = valueSelected.reduce((accumulator, valueCurrent) => {
+  const soma = valueSelected?.reduce((accumulator, valueCurrent) => {
     return accumulator + valueCurrent;
   }, 0);
 

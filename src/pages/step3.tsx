@@ -81,12 +81,10 @@ export default function Step3(props: any) {
   
   useEffect(() => {
     setAdditional(addonMonth)
-    props.handleNext({ addonMonth });
   }, [addonMonth]);
   
   useEffect(() => {
     setAdditional(addonYearly)
-    props.handleNext({ addonYearly });
   }, [addonYearly]);
 
   useEffect(() => {
@@ -103,7 +101,7 @@ export default function Step3(props: any) {
         
         {
           packageStorage ? (
-            <AddonsOptions role='listitemcheckbox'>
+            <AddonsOptions role='listitemcheckboxYR'>
               {addonYearly.map((addon) => (
                 // eslint-disable-next-line react/jsx-key
                 <Flex css={{ alignItems: 'center' }}>
@@ -137,7 +135,7 @@ export default function Step3(props: any) {
               ))}
             </AddonsOptions>
           ) : (
-            <AddonsOptions>
+            <AddonsOptions role='listitemcheckboxMO'>
               {addonMonth.map((addon) => (
                 // eslint-disable-next-line react/jsx-key
                 <Flex css={{ alignItems: 'center' }}>
