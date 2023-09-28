@@ -101,7 +101,7 @@ export default function Step3(props: any) {
         
         {
           packageStorage ? (
-            <AddonsOptions role='listitemcheckboxYR'>
+            <AddonsOptions>
               {addonYearly.map((addon) => (
                 // eslint-disable-next-line react/jsx-key
                 <Flex css={{ alignItems: 'center' }}>

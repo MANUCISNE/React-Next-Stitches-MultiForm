@@ -7,6 +7,7 @@ jest.mock("../src/contexts/FormStepContext", () => ({
   useGlobalContext: jest.fn(() => ({
     setPlansMonth: jest.fn(),
     setPlansYearly: jest.fn(),
+    setIsChecked: jest.fn(),
   })),
 }));
 

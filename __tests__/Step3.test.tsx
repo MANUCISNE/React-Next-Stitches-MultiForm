@@ -12,14 +12,14 @@ jest.mock("../src/contexts/FormStepContext", () => ({
 }));
 
 describe('Step3 component', () => {
-  // test('renders yearly add-ons if package is true', () => {
-  //   const { container } = render(<Step3 package={true} />);
+  test('renders yearly add-ons if package is true', () => {
+    const { container } = render(<Step3 package={true} />);
 
-  //   const yearlyAddons = screen.getByRole('listitemcheckboxYR');
+    const yearlyAddons = screen.getByRole('listadd');
 
-  //   expect(yearlyAddons).toBeInTheDocument();
-  //   expect(container).toMatchSnapshot();
-  // });
+    expect(yearlyAddons).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
+  });
 
   test('renders monthly add-ons if package is false', () => {
     const { container } = render(<Step3 package={false} />);
