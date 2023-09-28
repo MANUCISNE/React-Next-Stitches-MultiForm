@@ -44,7 +44,7 @@ export const ButtonContainerApp = styled("div", {
   },
 });
 
-export const ButtonDivTeste = styled("div", {
+export const ButtonDivBox = styled("div", {
   display: "flex",
   justifyContent: "space-between",
   marginTop: "1.5rem",

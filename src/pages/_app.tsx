@@ -7,7 +7,7 @@ import { AppProps } from 'next/app';
 import {
   BoxWrapper,
   ButtonContainerApp,
-  ButtonDivTeste,
+  ButtonDivBox,
   ButtonNext,
   ProgressBarBoxApp,
   ContainerAppBox,
@@ -52,7 +52,7 @@ export default function App({ Component, pageProps }: AppProps) {
       case 2:
         return <Step2 handleNext={handleNext}/>;
       case 3:
-        return <Step3 handleNext={handleNext}/>;
+        return <Step3 />;
       case 4:
         return <Step4 />;
     }
@@ -115,7 +115,7 @@ export default function App({ Component, pageProps }: AppProps) {
           
           <ButtonContainerApp>
             <BoxWrapper>{getCompStep()}</BoxWrapper>
-            <ButtonDivTeste>
+            <ButtonDivBox>
               {step !== 1 && (
                 <GoBackButton
                   onClick={() => setStep(step - 1)}
@@ -132,7 +132,7 @@ export default function App({ Component, pageProps }: AppProps) {
                   }}>Next Step</ButtonNext>
               )}
                 
-            </ButtonDivTeste>
+            </ButtonDivBox>
           </ButtonContainerApp>
         </ContainerAppBox>
       </ContainerImageBox>

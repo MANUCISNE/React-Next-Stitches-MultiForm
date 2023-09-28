@@ -4,7 +4,7 @@ import { Checkbox } from '@radix-ui/react-checkbox';
 import { AddonsOptions, Flex, FormDiv, Label, WrapperContainerStep3 } from '../styles/pages/step3';
 import { useGlobalContext } from '../contexts/FormStepContext';
 
-export default function Step3(props: any) {
+export default function Step3() {
   const { setAdditional } = useGlobalContext();
   const [packageStorage, setPackageStorage] = useState(false)
   const [addonMonth, setAddonMonth] = useState([
@@ -68,7 +68,7 @@ export default function Step3(props: any) {
           ? { ...checkbox, checked: !checkbox.checked }
           : checkbox
       );
-      setAddonMonth(updatedCheckboxes, );
+      setAddonMonth(updatedCheckboxes);
     } else {
       const updatedCheckboxes = addonYearly.map((checkbox) =>
       checkbox.id === id
@@ -103,7 +103,6 @@ export default function Step3(props: any) {
           packageStorage ? (
             <AddonsOptions>
               {addonYearly.map((addon) => (
-                // eslint-disable-next-line react/jsx-key
                 <Flex css={{ alignItems: 'center' }}>
                   <Checkbox
                     id={addon.id}
@@ -137,7 +136,6 @@ export default function Step3(props: any) {
           ) : (
             <AddonsOptions role='listitemcheckboxMO'>
               {addonMonth.map((addon) => (
-                // eslint-disable-next-line react/jsx-key
                 <Flex css={{ alignItems: 'center' }}>
                   <Checkbox
                     id={addon.id}

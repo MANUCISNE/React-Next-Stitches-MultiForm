@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { WrapperContainerStep4, TotalPlansCalculate, ConfirmButton, PlanTypeContainer, AdditionalContainer, FormDivStep4, TextResumStep4, FirstBoxResumStep4 } from '../styles/pages/step4';
+import {
+  WrapperContainerStep4,
+  TotalPlansCalculate,
+  ConfirmButton,
+  PlanTypeContainer,
+  AdditionalContainer,
+  FormDivStep4,
+  TextResumStep4,
+  FirstBoxResumStep4
+} from '../styles/pages/step4';
 import FinalPage from '../components/finalPage';
 import { useGlobalContext } from '../contexts/FormStepContext';
 
