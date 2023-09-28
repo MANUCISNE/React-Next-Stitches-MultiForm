@@ -20,7 +20,6 @@ export default function Step4() {
   const [typePlan, setTypePlan] = useState(false)
   const [data, setData] = useState({
     plans: {...plansMonth},
-    selectedAdditional: {...additional}, 
     plan: '(Month)'
   })
 
@@ -33,11 +32,9 @@ export default function Step4() {
   function mountShowData() {
     let obj = {}
     if(typePlan && additional) {
-      const selectedAdditional = additional.filter(plan => plan.checked === true)
       obj = {...plansYearly, plan: '(Yearly)'}
       setData(obj)
     } else if(!typePlan && additional) {
-      const selectedAdditional = additional.filter(plan => plan.checked === true)
       obj = {...plansMonth, plan: '(Month)'}
       setData(obj)
     }
